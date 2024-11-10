@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="kode_connector_form_view" model="ir.ui.view">
+        <field name="name">kode.connector.form.view</field>
+        <field name="model">kode.connector</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="test_connection"
+                            type='object'
+                            icon="fa-pencil-square-o"
+                            class="oe_highlight o_wow o_connector_wk_test"
+                            string='Test Connection'/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,connect"/>
+                </header>
+                <sheet>
+                   <div class="oe_button_box" name="button_box">
+                        <button name="action_view_logs"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-book">
+                            <field name="log_count" widget="statinfo" string="Logs"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Connected" bg_color="bg-success" attrs="{'invisible': [('state','not in', ('connect', ))]}"/>
+                    <widget name="web_ribbon" title="Not Connected" bg_color="bg-danger" attrs="{'invisible': ['|', ('state','not in', ('error', )), ('connect_message','=', False)]}"/>
+                    <div class="badge badge-success" attrs="{'invisible': [('state','!=', 'connect')]}">success</div>
+                    <div class="badge badge-danger" attrs="{'invisible': ['|', ('state','not in', ('error', )), ('connect_message','=', False)]}">error</div>
+                    <h3><field name="connect_message" readonly="1"/></h3>
+                    <div class="oe_title">
+                        <label for="name" string="Host Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_testing" widget="boolean_toggle" />
+                            <field name="test_url" attrs="{'invisible': [('is_testing', '=', False)]}"/>
+                            <field name="production_url" attrs="{'invisible': [('is_testing', '!=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="log_type"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="access_token"/>
+                    </group>
+                    <notebook>
+                        <page name="matched_fields" string="Matched Fields">
+                            <field name="field_ids" nolabel="1" domain="[('model_id', '=', 'res.partner')]">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="field_description"/>
+                                    <field name="model_id"/>
+                                    <field name="ttype"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="kode_connector_tree_view" model="ir.ui.view">
+        <field name="name">kode.connector.tree</field>
+        <field name="model">kode.connector</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="is_testing">
+                <field name="name"/>
+                <field name="url"/>
+                <field name="state"/>
+                <field name="connect_message"/>
+                <field name="is_testing" widget="boolean_toggle" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="kode_connector_search_view" model="ir.ui.view">
+        <field name="name">kode.connector.search.form</field>
+        <field name="model">kode.connector</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="state"/>
+                <field name="connect_message"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="kode_connector_action">
+        <field name="name">Kode Connector</field>
+        <field name="res_model">kode.connector</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+    <menuitem
+        id="kode_menu_root"
+        name="Kode Connector"
+        sequence="5"
+        web_icon="kode_connector,static/description/icon.png"/>
+
+    <menuitem
+        id="kode_menu_connector"
+        parent="kode_menu_root"
+        name="Webhooks"
+        action="kode_connector_action"
+        sequence="10"/>
+</odoo>

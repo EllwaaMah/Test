@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- Down Account Payment Receive -->
+    <template id="down_account_payment_receive_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/sr_pdc_management/static/src/css/font.css"/>
+                <div class="page">
+                    <hr style="border-top: 1px solid gray;"></hr>
+                    <p style="text-align:center; font-size:22px; font-family: 'Arial', Times, serif;"><b>  العالمية للأستثمار العقاري  </b></p>
+                    <p style="text-align:left;">
+                        <span  t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y/%m/%d  %H:%M')"/><br></br>
+                        <span  t-esc="user.name"></span>    
+                    </p>
+                    <p style="text-align:center; font-size:22px;">اذن قبض نقدية</p>
+                    <hr style="border-top: 1px solid gray;"></hr>
+            
+                    <div id="parent" style='direction: rtl; text-align:right; width:100%; padding:0px; margin-right:10px; line-height:1.5;'>
+                        <div id="right" style="float:right; width:50%; padding:0; margin:0; ">
+                           <span>    
+                                <b> أذن قبض نقدية رقم </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.name"></span>       
+                                <br></br>  
+                                <b> المبلغ </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.amount"></span>
+                                <br></br>   
+                                <b>  المبلغ و قدره </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.text_amount"> </span>   جنيه مصري فقط لا غير
+                                <br></br>
+                                <b> الوحدة </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.unit"></span>   
+                            </span>
+                        </div>
+                        <div id="left" style="float:left; width:50%; padding:0; margin:0;">
+                           <span>     
+                               <b> بتاريخ </b>    &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.date"></span>      
+                                <br></br>     
+                                <b>استلمنا من </b> &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.partner_id.name"></span>
+                                <br></br>     
+                                <b> الملاحظات </b> &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.ref"></span>
+                                <br></br>     
+                                <b>الحركة </b> &#160;&#160;&#160;&#160;&#160;&#160; 
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <table width="100%">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div style='text-align:right;  width:100%; padding-right:70px; padding-left:70px; margin:0px;'>
+                        <span> امين الخزينه   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> المحاسب   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> يعتمد </span>   
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+<!-- Down Account Payment Send -->
+    <template id="down_account_payment_send_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/sr_pdc_management/static/src/css/font.css"/>
+                <div class="page">
+                    <hr style="border-top: 1px solid gray;"></hr>
+                    <p style="text-align:center; font-size:22px; font-family: 'Times New Roman', Times, serif;"><b>  العالمية للأستثمار العقاري  </b></p>
+                    <p style="text-align:left;">
+                        <span  t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y/%m/%d  %H:%M')"/><br></br>
+                        <span  t-esc="user.name"></span>    
+                    </p>
+                    <p style="text-align:center; font-size:22px;">اذن صرف نقدية</p>
+                    <hr style="border-top: 1px solid gray;"></hr>
+            
+                    <div id="parent" style='direction: rtl; text-align:right; width:100%; padding:0px; margin-right:10px; line-height:1.5;'>
+                        <div id="right" style="float:right; width:50%; padding:0; margin:0; ">
+                        <span>    
+                                <b> أذن صرف نقدية رقم </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.name"></span>       
+                                <br></br>  
+                                <b> المبلغ </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.amount"></span>
+                                <br></br>   
+                                <b>  المبلغ و قدره </b>  &#160;&#160;&#160;&#160;&#160;&#160;    <span  t-esc="docs.text_amount"> </span>   جنيه مصري فقط لا غير 
+                                <br></br>
+                                <b> الوحدة </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.unit"></span>   
+                            </span>
+                        </div>
+                        <div id="left" style="float:left; width:50%; padding:0; margin:0;">
+                        <span>     
+                            <b> بتاريخ </b>    &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.date"></span>      
+                                <br></br>     
+                                <b> سلمنا ل </b> &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.partner_id.name"></span>
+                                <br></br>     
+                                <b> الملاحظات </b> &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.ref"></span>
+                                <br></br>     
+                                <b>الحركة </b> &#160;&#160;&#160;&#160;&#160;&#160; 
+                            </span>
+                        </div>
+                    </div>
+                    <table width="100%">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <div style='text-align:right;  width:100%; padding-right:70px; padding-left:70px; margin:0px;'>
+                        <span> امين الخزينه   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> المحاسب   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> يعتمد </span>   
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

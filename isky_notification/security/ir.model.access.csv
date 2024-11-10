@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_system_notification,access.system.notification,model_system_notification,,1,1,1,1
+access_notification_lines,access.notification.lines,model_notification_line,,1,1,1,1

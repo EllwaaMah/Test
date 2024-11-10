@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="disciplinary_cases_history_form_view" model="ir.ui.view">
+            <field name="name">disciplinary.cases.history.form</field>
+            <field name="model">disciplinary.cases.history</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="button_initiated" string="In-Progress" class="oe_highlight" states="initiated"
+                                type="object"/>
+                        <button name="button_inprogress" string="Close" class="oe_highlight" states="in_progress"
+                                type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="initiated,in_progress,close"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="......"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="assigned_to_id"/>
+                                <field name="violation_type_id"/>
+                            </group>
+                            <group>
+                                <field name="reported_by_id"/>
+                                <field name="disciplinary_action_id"/>
+                                <field name="disciplinary_date" />
+                                <field name="close_date" attrs="{'readonly': [('state', '=', 'close')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="category_comment"/>
+                            <field name="disciplinary_action_comment"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="disciplinary_cases_history_tree_view" model="ir.ui.view">
+            <field name="name">disciplinary.cases.history.tree</field>
+            <field name="model">disciplinary.cases.history</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="assigned_to_id"/>
+                    <field name="violation_type_id"/>
+                    <field name="reported_by_id"/>
+                    <field name="disciplinary_action_id"/>
+                    <field name="state"/>
+                    <field name="close_date" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="disciplinary_cases_history_action" model="ir.actions.act_window">
+            <field name="name">Disciplinary History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">disciplinary.cases.history</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

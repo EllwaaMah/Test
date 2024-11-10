@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="batch_pdc_payment_report_template">
+		<t t-call="web.html_container">
+	<!--        <t t-call="web.internal_layout"> 
+                <t t-call="web.frontend_layout">
+                <t t-call="web.basic_layout">
+    -->
+		    <t t-call="web.basic_layout">
+                <link rel="stylesheet" href="/sr_pdc_management/static/src/css/font.css"/>
+				<div class="page">
+                    <hr style="border-top: 1px solid gray;"></hr>
+                    <p style="text-align:center; font-size:22px; font-family: 'Times New Roman', Times, serif;"><b>  العالمية للأستثمار العقاري  </b></p>
+                    <p style="text-align:left;">
+                        <span  t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y/%m/%d  %H:%M')"/><br></br>
+                        <span  t-esc="user.name"></span>    
+                    </p>
+                    <p style="text-align:center; font-size:22px;">اذن استلام شيكات</p>
+                    <hr style="border-top: 1px solid gray;"></hr>
+                    
+
+                    <div style='direction: rtl; text-align:right; width:100%; padding:0px; margin-right:10px; line-height:1.5;'>
+                        <div style="float:right; width:50%; padding:0; margin:0; ">
+                           <span>    
+                                <b> رقم الحافظة </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.name"></span>       
+                                <br></br>  
+                                <b> استلمنا من </b>  &#160;&#160;&#160;&#160;&#160;&#160; <span  t-esc="docs.partner_id.name"></span>   
+                            </span>
+                        </div>
+                        <div style="float:left; width:50%; padding:0; margin:0;">
+                           <span>     
+                               <b> بتاريخ </b>           &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.payment_date"></span>      
+                                <br></br>     
+                                <b>إجمالي عدد الشيكات</b> &#160;&#160;&#160;&#160;&#160;&#160; <span t-esc="docs.cheques_no"></span>   
+                            </span>
+                       </div>
+                   </div>
+                    <br></br>
+                    <br></br>
+                   <table style="text-align:center" class="table table-striped" width="50%" >
+                    <t t-set="amount_total" t-value="0"/>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;  vertical-align: middle; border: 1px solid gray; background-color:#e6ebea;">رقم ورقة القبض</th>
+                            <th style="text-align: center;  vertical-align: middle; border: 1px solid gray; background-color:#e6ebea;">تاريخ الاستحقاق</th>
+                            <th style="text-align: center;  vertical-align: middle; border: 1px solid gray; background-color:#e6ebea;">القيمة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="docs.line_ids" t-as="line">
+                            <td style="text-align: center;  vertical-align: middle; border: 1px solid gray;"><span t-esc="line.cheque_ref"></span></td>
+                            <td style="text-align: center;  vertical-align: middle; border: 1px solid gray;"><span t-esc="line.due_date"></span></td>
+                            <td style="text-align: center;  vertical-align: middle; border: 1px solid gray;"><span t-esc="line.amount"></span></td>
+                            <t t-set="amount_total" t-value="amount_total+line.amount"/>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right;  vertical-align: middle; border: 1px solid gray;"><span t-esc="amount_total"/> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                        </tr>
+                    </tbody>
+                   </table>
+                   <div style='text-align:right;  width:100%; padding-right:70px; padding-left:70px; margin:0px;'>
+                        <span> المستلم   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> الاعتماد   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span>
+                        <span> الموافقة </span>   
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>    
+
+</odoo>

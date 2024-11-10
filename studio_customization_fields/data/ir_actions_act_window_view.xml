@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="contacts.action_contacts_view_form" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" ref="base.view_partner_form"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="contacts.action_contacts_view_kanban" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" ref="base.res_partner_kanban_view"/>
+    <field name="view_mode">kanban</field>
+  </record>
+  <record id="contacts.action_contacts_view_tree" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" ref="base.view_partner_tree"/>
+    <field name="view_mode">tree</field>
+  </record>
+  <record id="contacts_enterprise.res_partner_action_contacts_view_map" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">3</field>
+    <field name="view_id" ref="contacts_enterprise.res_partner_view_map"/>
+    <field name="view_mode">map</field>
+  </record>
+  <record id="studio_customization_fields.account_payment_tree_efd92405-0c3b-4296-bf0c-1507235e4eb7" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.action_account_payments"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" ref="account.view_account_payment_tree"/>
+    <field name="view_mode">tree</field>
+  </record>
+  <record id="studio_customization_fields.false_40339195-e243-4b04-b45c-5395e0b0292c" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.action_account_payments"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">kanban</field>
+  </record>
+  <record id="studio_customization_fields.false_598caa3b-1483-446c-91e5-78ac82592769" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.action_account_payments"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">3</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">graph</field>
+  </record>
+  <record id="studio_customization_fields.false_5f159456-c793-4280-95cb-a6ca66192938" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">4</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">activity</field>
+  </record>
+  <record id="studio_customization_fields.false_924edbba-665a-443c-8114-54fdaf922362" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.action_account_payments"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="studio_customization_fields.false_98cfb63b-9bce-45f8-803a-352fe0446385" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.action_account_payments"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">4</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">pivot</field>
+  </record>
+  <record id="studio_customization_fields.false_e45521ba-0b92-48fe-8a6b-93ad96de0eba" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="contacts.action_contacts"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">5</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">graph</field>
+  </record>
+</odoo>

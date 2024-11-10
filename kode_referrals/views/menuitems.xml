@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_kode_referrals_root"
+                  name="Referrals"
+                  web_icon="kode_referrals,static/description/icon.png"
+                  sequence="215" groups="hr.group_hr_user"/>
+        <menuitem id="referral_reward_action_menu" name="Rewards" groups="hr.group_hr_user"
+                  parent="kode_referrals.menu_kode_referrals_root" action="referral_reward_action"/>
+        <menuitem id="employee_referral_reward_action_menu" name="Employee Rewards" groups="hr.group_hr_user"
+                  parent="kode_referrals.menu_kode_referrals_root" action="employee_referral_reward_action"/>
+    </data>
+</odoo>

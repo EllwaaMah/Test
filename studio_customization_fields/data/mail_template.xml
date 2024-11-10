@@ -1,0 +1,530 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="sale.mail_template_sale_confirmation" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="True"/>
+    <field name="body_html">&lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+    &lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;padding: 0px; font-size: 12px;"&gt;
+        Hello,
+        &lt;br&gt;&lt;br&gt;
+        % set transaction = object.get_portal_last_transaction()
+        Your order &lt;strong style="font-weight:bolder;"&gt;${object.name}&lt;/strong&gt; amounting in &lt;strong style="font-weight:bolder;"&gt;${format_amount(object.amount_total, object.currency_id)}&lt;/strong&gt;
+        % if object.state == 'sale' or (transaction and transaction.state in ('done', 'authorized')) :
+            has been confirmed.&lt;br&gt;
+            Thank you for your trust!
+        % elif transaction and transaction.state == 'pending' :
+            is pending. It will be confirmed when the payment is received.
+            % if object.reference:
+                Your payment reference is &lt;strong style="font-weight:bolder;"&gt;${object.reference}&lt;/strong&gt;.
+            % endif
+        % endif
+        &lt;br&gt;&lt;br&gt;
+        Do not hesitate to contact us if you have any questions.
+        &lt;br&gt;&lt;br&gt;
+    &lt;/p&gt;
+% if object.website_id:
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-collapse: collapse;"&gt;
+            &lt;tbody&gt;&lt;tr style="border-bottom:2px solid #dee2e6;"&gt;
+                &lt;td style="width:150px;"&gt;&lt;strong style="font-weight:bolder;"&gt;Products&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td width="15%" align="center"&gt;&lt;strong style="font-weight:bolder;"&gt;Quantity&lt;/strong&gt;&lt;/td&gt;
+                &lt;td width="20%" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;
+                % if object.user_id.has_group('account.group_show_line_subtotals_tax_excluded'):
+                    VAT Excl.
+                % else
+                    VAT Incl.
+                % endif
+                &lt;/strong&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+        % for line in object.order_line:
+            % if not line.is_delivery and line.display_type in ['line_section', 'line_note']:
+                &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-collapse: collapse;"&gt;
+                    &lt;tbody&gt;&lt;tr style="${loop.cycle('background-color:#f2f2f2', 'background-color: #ffffff')}"&gt;
+                        &lt;td colspan="4"&gt;
+                            % if line.display_type == 'line_section':
+                                &lt;strong style="font-weight:bolder;"&gt;${line.name}&lt;/strong&gt;
+                            % elif line.display_type == 'line_note':
+                                &lt;i&gt;${line.name}&lt;/i&gt;
+                            % endif
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;&lt;/table&gt;
+            % elif not line.is_delivery
+                &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-collapse: collapse;"&gt;
+                    &lt;tbody&gt;&lt;tr style="${loop.cycle('background-color:#f2f2f2', 'background-color: #ffffff')}"&gt;
+                        &lt;td style="width:150px;"&gt;
+                            &lt;img src="/web/image/product.product/${line.product_id.id}/image_128" style="border-style:none;vertical-align:middle;width:64px;height: 64px; object-fit: contain;" alt="Product image" width="64" height="64"&gt;
+                        &lt;/td&gt;
+                        &lt;td align="left"&gt;${line.product_id.name}&lt;/td&gt;
+                        &lt;td width="15%" align="center"&gt;${line.product_uom_qty}&lt;/td&gt;
+                        &lt;td width="20%" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;
+                        % if object.user_id.has_group('account.group_show_line_subtotals_tax_excluded'):
+                            ${format_amount(line.price_reduce_taxexcl, object.currency_id)}
+                        % else
+                            ${format_amount(line.price_reduce_taxinc, object.currency_id)}
+                        % endif
+                        &lt;/strong&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;&lt;/table&gt;
+            % endif
+        % endfor
+    &lt;/div&gt;
+    % if object.carrier_id:
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-spacing: 0px 4px;" align="right"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td style="width:60%"&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td style="width:30%;border-top: 1px solid #dee2e6;" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;Delivery:&lt;/strong&gt;&lt;/td&gt;
+                &lt;td style="width:10%;border-top: 1px solid #dee2e6;" align="right"&gt;${format_amount(object.amount_delivery, object.currency_id)}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td style="width:60%"&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td style="width:30%;" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;SubTotal:&lt;/strong&gt;&lt;/td&gt;
+                &lt;td style="width:10%;" align="right"&gt;${format_amount(object.amount_untaxed, object.currency_id)}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+    &lt;/div&gt;
+    % else:
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-spacing: 0px 4px;" align="right"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td style="width:60%"&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td style="width:30%;border-top: 1px solid #dee2e6;" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;SubTotal:&lt;/strong&gt;&lt;/td&gt;
+                &lt;td style="width:10%;border-top: 1px solid #dee2e6;" align="right"&gt;${format_amount(object.amount_untaxed, object.currency_id)}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+    &lt;/div&gt;
+    % endif
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px; border-spacing: 0px 4px;" align="right"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td style="width:60%"&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td style="width:30%;" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;Taxes:&lt;/strong&gt;&lt;/td&gt;
+                &lt;td style="width:10%;" align="right"&gt;${format_amount(object.amount_tax, object.currency_id)}&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td style="width:60%"&gt;&amp;nbsp;&lt;/td&gt;
+                &lt;td style="width:30%;border-top: 1px solid #dee2e6;" align="right"&gt;&lt;strong style="font-weight:bolder;"&gt;Total:&lt;/strong&gt;&lt;/td&gt;
+                &lt;td style="width:10%;border-top: 1px solid #dee2e6;" align="right"&gt;${format_amount(object.amount_total, object.currency_id)}&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+    &lt;/div&gt;
+    % if object.partner_invoice_id:
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px;"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td style="padding-top:10px;"&gt;
+                    &lt;strong style="font-weight:bolder;"&gt;Bill to:&lt;/strong&gt;
+                    ${object.partner_invoice_id.street or ''}
+                    ${object.partner_invoice_id.city or ''}
+                    ${object.partner_invoice_id.state_id.name or ''}
+                    ${object.partner_invoice_id.zip or ''}
+                    ${object.partner_invoice_id.country_id.name or ''}
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;strong style="font-weight:bolder;"&gt;Payment Method:&lt;/strong&gt;
+                    % if transaction.payment_token_id:
+                        ${transaction.payment_token_id.name}
+                    % else:
+                        ${transaction.acquirer_id.name}
+                    % endif
+                     (${format_amount(transaction.amount, object.currency_id)})
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+    &lt;/div&gt;
+    % endif
+    % if object.partner_shipping_id and not object.only_services:
+    &lt;div style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin:0px;padding: 0px;"&gt;
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px;"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td&gt;
+                    &lt;br&gt;
+                    &lt;strong style="font-weight:bolder;"&gt;Ship to:&lt;/strong&gt;
+                    ${object.partner_shipping_id.street or ''}
+                    ${object.partner_shipping_id.city or ''}
+                    ${object.partner_shipping_id.state_id.name or ''}
+                    ${object.partner_shipping_id.zip or ''}
+                    ${object.partner_shipping_id.country_id.name or ''}
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+        % if object.carrier_id:
+        &lt;table width="100%" style="border-collapse:collapse;color:#454748;font-size: 12px;"&gt;
+            &lt;tbody&gt;&lt;tr&gt;
+                &lt;td&gt;
+                    &lt;strong style="font-weight:bolder;"&gt;Shipping Method:&lt;/strong&gt;
+                    ${object.carrier_id.name}
+                    % if object.carrier_id.fixed_price == 0.0:
+                        (Free)
+                    % else:
+                        (${format_amount(object.carrier_id.fixed_price, object.currency_id)})
+                    % endif
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;&lt;/table&gt;
+        % endif
+    &lt;/div&gt;
+    % endif
+% endif
+&lt;/div&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from">${(object.user_id.email_formatted or user.email_formatted) | safe}</field>
+    <field name="email_to" eval="False"/>
+    <field name="lang">${object.partner_id.lang}</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">Sales Order: Confirmation Email</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to">${object.partner_id.id}</field>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name">${(object.name or '').replace('/','_')}</field>
+    <field name="report_template" ref="sale.action_report_saleorder"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">${object.company_id.name} ${(object.get_portal_last_transaction().state == 'pending') and 'Pending Order' or 'Order'} (Ref ${object.name or 'n/a' })</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.first_reminder_to_be_7e7c1316-e568-43d2-a6e6-00949c277d24" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;Hello,&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;This is a kind reminder to finalize your KODE membership process before the due date of your first installment.&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;Please fill in the members’ application form sent in the previous&amp;nbsp; &lt;/span&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;&lt;b style="font-weight:bolder;"&gt;KODE Membership Finalization&lt;/b&gt;&lt;/span&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt; email&lt;/span&gt;&lt;span style="background-color:rgb(255, 255, 255);color: rgb(32, 33, 36); font-family: Roboto, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt; &lt;/span&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;with high accuracy, to ensure a smooth process.&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style="background-color:transparent;color: rgb(34, 34, 34); font-family: Calibri, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"&gt;At the end of the form, you will find a link to the KODE team calendar to finalize your membership and submit your quarterly installments.&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font style="font-size:12px;"&gt;&lt;b style="font-weight:bolder;"&gt;BR,&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font style="font-size:12px;"&gt;KODE Team&lt;/font&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;br&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">1st Reminder: to be sent 30 days after Downpayment date</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">Membership Finalization Reminder</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.membership_finalizat_b2e94d87-d68f-409f-be30-196dd3ba8430" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="True"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-size:10.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#222222"&gt;Hello,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-size:10.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#222222"&gt;It’s time to finalize your KODE
+membership process and welcome you officially on board. Please fill in the
+members’ application form below with high accuracy, to ensure a smooth process.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN"&gt;&lt;a href="https://form.typeform.com/to/Ex6LutGV" style="text-decoration:none;background-color:transparent;color:rgb(0, 135, 132);"&gt;&lt;span style="font-size:10.0pt;
+line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#1155CC"&gt;https://form.typeform.com/to/Ex6LutGV&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;u&gt;&lt;span lang="EN" style="font-size:10.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#1155CC"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/u&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-size:10.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#222222"&gt;At the end of the form, you will
+find a link to the KODE team calendar to finalize your membership and submit
+your quarterly instalments. Please book your slot at the earliest to ensure
+finding a time at your convenience.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-size:12.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#222222"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" align="center" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;text-align:center;
+line-height:107%"&gt;&lt;b style="font-weight:bolder;"&gt;&lt;span lang="EN" style="font-size:12.0pt;line-height:107%;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;
+mso-fareast-font-family:Calibri;color:#222222"&gt;&amp;nbsp;&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to" eval="False"/>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">Membership Finalization - 2 weeks from the downpayment date</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">Membership Finalization</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.referral_accepted_73d645d6-fe13-43eb-aff0-442046a703fa" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="True"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN"&gt;Dear &lt;span style="background-image:initial;background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"&gt;${object.contact_name}&lt;/span&gt;,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN"&gt;&lt;font face="Calibri, sans-serif"&gt;Welcome
+to KODE Sports Club! We have successfully received your membership application
+and are delighted to be welcoming you on board. To finalize your membership,
+please visit the KODE website (www.kodeclubs.com) and use your uniquely
+generated identification code: - &lt;b style="font-weight:bolder;"&gt;${object.x_studio_shopify_code_1}&lt;/b&gt;&amp;nbsp;to submit your down payment (10% of membership price).&lt;o:p&gt;&lt;/o:p&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri"&gt;Please
+note that this code does not guarantee the current price, so please lock in
+your membership by making the downpayment at the earliest and please don’t
+share your code as it can only be used once by you.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri"&gt;We
+look forward to having you as part of the KODE Community! &lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri"&gt;KODE
+Team.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">Welcome to KODE Sports Club!</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">Welcome to KODE Sports Club!</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.referral_rejected_2123f509-216c-43a4-ad9b-ad116240f546" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;Dear&amp;nbsp;&lt;span style="color:rgb(33, 37, 41);font-family: &amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;${object.contact_name}&lt;/span&gt;,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;We would like to thank you very much for your interest in KODE
+Sports Club. Unfortunately, we will not be able to proceed with your
+application beyond this stage, at this time.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;Once again, we thank you for your understanding and interest in
+KODE.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;KODE Team.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">KODE Application Response</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">KODE Application Response</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.referral_rejected_pr_8a42743d-7763-4fc0-9384-067154309df5" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Dear&amp;nbsp;&lt;span style="color:rgb(33, 37, 41);font-family: &amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;${object.contact_name}&lt;/span&gt;,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;We would like to thank you very much for your interest in KODE Sports Club. Unfortunately, we will not be able to proceed with your application at this time, as we follow a members only referral system and &lt;b style="font-weight:bolder;"&gt;your referral has not been identified as an existing KODE member.&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;font style="font-size:14px;"&gt;&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Please feel free to share with us a new referral (name and
+number) to complete your application.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Once again, we thank you for your understanding and interest in
+KODE.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">KODE Application Response</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">KODE Application Response</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.referral_rejected_we_bff37c54-910a-4935-a7e9-61294bfb0ea4" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Dear&amp;nbsp;&lt;span style="color:rgb(33, 37, 41);font-family: &amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;${object.contact_name}&lt;/span&gt;,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;We would like to thank you very much for your interest in KODE Sports Club. Unfortunately, we will not be able to proceed with your application at this time, as we follow a members only referral system and&lt;b style="font-weight:bolder;"&gt;&amp;nbsp;&lt;/b&gt;&lt;/span&gt;&lt;font color="#222222" face="Calibri, sans-serif"&gt;&lt;span style="font-size:14px;"&gt;&lt;b style="font-weight:bolder;"&gt;we were unable to receive a confirmed referral.&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;font style="font-size:14px;"&gt;&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Please feel free to share with us a new referral (name and
+number) to complete your application.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Once again, we thank you for your understanding and interest in
+KODE.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">KODE Application Response</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">KODE Application Response</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.referral_rejected_we_ec25849a-a7e8-4e69-ada9-74650d6dbcd7" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Dear&amp;nbsp;&lt;span style="color:rgb(33, 37, 41);font-family: &amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;${object.contact_name}&lt;/span&gt;,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;We would like to thank you very much for your interest in KODE Sports Club. Unfortunately, we will not be able to proceed with your application at this time, as we follow a members only referral system and&lt;b style="font-weight:bolder;"&gt; we were unable to reach your referral.&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;font style="font-size:14px;"&gt;&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Please feel free to share with us a new referral (name and
+number) to complete your application.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;Once again, we thank you for your understanding and interest in
+KODE.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="color:rgb(34, 34, 34);font-family: Calibri, sans-serif; font-size: 14px;"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">KODE Application Response</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">KODE Application Response</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.send_membership_code_116dde5f-eecd-406f-9a11-7a0892bae6ec" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;Welcome to KODE Clubs!&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;Now that you are officially part of the KODE community, you can start referring your close friends and family by sharing our request for membership form along with your membership number below :&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;Your membership number is:&lt;/font&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;-&amp;nbsp;&lt;/font&gt;&lt;span style="text-align:inherit;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;${object.x_studio_membership_code}&lt;/font&gt;&lt;/span&gt;&lt;span style="color:rgb(34, 34, 34);font-family: Arial, Helvetica, sans-serif; font-size: small; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; text-align: inherit;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div dir="ltr" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;&lt;font color="#222222" face="Arial, Helvetica, sans-serif" size="2"&gt;Together, we’ll build a closely-knit KODE community!&lt;/font&gt;&lt;/div&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">Send Membership Code</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">Welcome to the Club!</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.to_be_interviewed_d561244d-fcc3-427b-8c15-b495f8d09b81" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" class="bg-o-color-4" style="background-color:rgb(255, 255, 255);color:rgb(33, 37, 41);"&gt;&lt;font color="#222222" face="Calibri, sans-serif"&gt;Dear &lt;/font&gt;&lt;span style="background-image:initial;background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"&gt;${object.contact_name}&lt;/span&gt;,&lt;font color="#222222" face="Calibri, sans-serif"&gt;&lt;o:p&gt;&lt;/o:p&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;We would like to thank you very much for your interest in KODE
+Sports Club. Your application has been well received and reviewed. We would
+like to schedule a 15-minute follow up Zoom call with your good self and
+spouse, to ask a few further questions and tell you more about KODE.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;Please use the link below to book a slot for your meeting. &lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;https://kode-clubs.appointlet.com/b/kode-sports-club&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;Please note that this is a necessary meeting in order to proceed
+with your application process.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;BR,&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;
+
+
+
+
+
+
+
+
+
+
+
+&lt;/p&gt;&lt;p class="MsoNormal" style="font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;margin-bottom:8.0pt;line-height:107%"&gt;&lt;span lang="EN" style="font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-fareast-font-family:Calibri;
+color:#222222"&gt;KODE Team.&lt;o:p&gt;&lt;/o:p&gt;&lt;/span&gt;&lt;/p&gt;</field>
+    <field name="copyvalue" eval="False"/>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from" eval="False"/>
+    <field name="email_to">${object.email_from}</field>
+    <field name="lang">${object.partner_id.lang}</field>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model_object_field" eval="False"/>
+    <field name="name">To be interviewed</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">Getting to Know you Better!</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+</odoo>

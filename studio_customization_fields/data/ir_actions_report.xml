@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization_fields.batch_cheques_report_27695f7d-ad55-4b6f-b6cc-8b37cf8d3f31" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="binding_type">report</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">x_batch_cheques</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Batch Cheques Report</field>
+    <field name="paperformat_id" ref="base.paperformat_euro"/>
+    <field name="report_name">studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+</odoo>

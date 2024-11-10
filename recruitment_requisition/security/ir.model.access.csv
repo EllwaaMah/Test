@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_recruitment_requisition,recruitment.requisition,model_recruitment_requisition,,1,1,1,1
+access_replacement_reason,replacement.reason,model_replacement_reason,,1,1,1,1
+access_employment_type,employment.type,model_employment_type,,1,1,1,1
+access_working_plan,working.plan,model_working_plan,,1,1,1,1
+access_requisition_log,requisition.log,model_requisition_log,,1,1,1,1
+access_hiring_duration,hiring.duration,model_hiring_duration,,1,1,1,1

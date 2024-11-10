@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- State -->
+
+<!-- Deposit Button in action menu -->
+    <record id="model_sr_pdc_payment_action_deposit" model="ir.actions.server">
+        <field name="name">Deposit</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.state in ['register','bounce']:
+                    record.deposit()
+        </field>
+    </record>
+
+    <!-- Done Button in action menu -->
+    <record id="model_sr_pdc_payment_action_done" model="ir.actions.server">
+        <field name="name">Collected</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            if record.state == "deposit":
+                for record in records:
+                    record.done()
+        </field>
+    </record>
+
+
+<!-- Bounce Button in action menu -->
+    <record id="model_sr_pdc_payment_action_bounce" model="ir.actions.server">
+        <field name="name">Bounce</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.state == 'deposit':
+                    record.bounce()
+        </field>
+    </record>
+
+
+<!-- Return Button in action menu -->
+    <record id="model_sr_pdc_payment_action_return" model="ir.actions.server">
+        <field name="name">Return</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.state in ['register','bounce']:
+                    record.return_cheque()
+        </field>
+    </record>
+
+
+
+<!-- Register Button in action menu -->
+    <record id="model_sr_pdc_payment_action_register" model="ir.actions.server">
+        <field name="name">Register</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.state == 'draft':
+                    record.register()
+        </field>
+    </record>
+
+
+<!-- Cancel Button in action menu -->
+    <record id="model_sr_pdc_payment_action_cancel" model="ir.actions.server">
+        <field name="name">Cancel</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_model_id" ref="sr_pdc_management.model_sr_pdc_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            for record in records:
+                if record.state == 'draft':            
+                    record.cancel()
+        </field>
+    </record>
+
+</odoo>

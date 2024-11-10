@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="survey_survey_view_form" model="ir.ui.view">
+        <field name="name">survey.survey.view.form.inherit.website_slides</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_archive']" position="after">
+                <button name="%(export_survey_result_wizard_action)d" type="action" string="Export answers"
+                        groups="survey.group_survey_manager" class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

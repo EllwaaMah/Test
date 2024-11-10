@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_form_view_account_payment" model="ir.ui.view">
+        <field name="name">account.payment.form.view.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header//button[@name='action_post']" position="before">
+                <button name="action_print_report_payment_receive" string="Print Down Payment" type="object" class="oe_highlight"  attrs="{'invisible': ['|' ,('payment_type', '!=', 'inbound'), ('state', '=', 'draft')]}"/>
+                <button name="action_print_report_payment_send" string="Print Down Payment" type="object" class="oe_highlight"  attrs="{'invisible': ['|' ,('payment_type', '!=', 'outbound'), ('state', '=', 'draft')]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="unit" />
+                <!-- <field name="text_amount" /> -->
+            </xpath>
+        </field>
+    </record>
+</odoo>

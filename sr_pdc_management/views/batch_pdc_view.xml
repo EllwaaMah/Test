@@ -1,0 +1,128 @@
+<odoo>
+    <data>
+
+        <record id="action_batch_pdc_payment"
+                model="ir.actions.act_window">
+            <field name="name">Batch PDC Payment</field>
+            <field name="res_model">batch.pdc.payment</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sr_view_pdc_payment_invoice_view"/>
+            <field name="context">{'default_invoice_ids': [(4, active_id, None)]}
+            </field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="batch_pdc_payment_tree" model="ir.ui.view">
+            <field name="name">batch.pdc.payment.tree</field>
+            <field name="model">batch.pdc.payment</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state=='draft'" decoration-muted="state=='lock'" edit="false">
+                    <field name="payment_date"/>
+                    <field name="name"/>
+                    <field name="journal_id"/>
+                    <field name="partner_id" string="customer"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="state"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="batch_pdc_payment_form" model="ir.ui.view">
+            <field name="name">batch.pdc.payment.form</field>
+            <field name="model">batch.pdc.payment</field>
+            <field name="arch" type="xml">
+                <form string="PDC Payment">
+                    <header>
+                        <button name="generate_cheques" class="oe_highlight" states="draft" string="Generate Cheques" type="object"/>
+                        <button name="lock" class="oe_highlight" states="draft" string="Lock" type="object"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,lock"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="payment_type" widget="radio"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="partner_id"
+                                       context="{'default_supplier': payment_type == 'outbound', 'default_customer': payment_type == 'inbound'}"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <label for="amount"/>
+                                <div name="amount_div" class="o_row">
+                                    <field name="amount"
+                                           attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                    <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                                           groups="base.group_multi_currency" invisible="1"/>
+                                </div>
+                                <field name="cheques_no"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="no_of_months"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="first_cheque_date"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="first_cheque_ref"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+
+                            </group>
+                            <group>
+                                <field name="journal_id" widget="selection"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="deposit_journal_id" widget="selection"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+
+                                <field name="payment_date"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="communication"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="agent"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="bank"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       attrs="{'readonly': [('state', 'not in', ['draft'])] }"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="lines" string="Post Dated Cheques">
+                                <field name="line_ids"
+                                       context="{'default_bank': bank,'default_agent': agent,'default_payment_type': payment_type,'default_partner_id': partner_id,'default_deposit_journal_id': deposit_journal_id,'default_journal_id': journal_id,'default_communication':communication }">
+                                    <tree editable="bottom">
+                                        <field name="cheque_ref"/>
+                                        <field name="name"/>
+                                        <field name="amount"/>
+                                        <field name="due_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_pdc_payment_batch" model="ir.actions.act_window">
+            <field name="name">Batch PDC Payments</field>
+            <field name="res_model">batch.pdc.payment</field>
+            <field name="view_id" ref="batch_pdc_payment_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Batch Post Dated Check
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="action_pdc_payment_batch" name="Batch PDC" id="menu_finance_batch_pdc"
+                  parent="menu_finance_pdc" sequence="2"/>
+
+    </data>
+</odoo>

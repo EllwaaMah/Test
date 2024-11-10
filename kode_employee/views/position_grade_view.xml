@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="position_grade_form_view" model="ir.ui.view">
+            <field name="name">position.grade.form</field>
+            <field name="model">position.grade</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="......"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="percentile_1"/>
+                                <field name="percentile_2"/>
+                                <field name="percentile_3"/>
+                            </group>
+                            <group>
+                                <field name="percentile_4"/>
+                                <field name="percentile_5"/>
+                            </group>
+                        </group>
+                    </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="position_grade_tree_view" model="ir.ui.view">
+            <field name="name">position.grade.tree</field>
+            <field name="model">position.grade</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="percentile_1"/>
+                    <field name="percentile_2"/>
+                    <field name="percentile_3"/>
+                    <field name="percentile_4"/>
+                    <field name="percentile_5"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

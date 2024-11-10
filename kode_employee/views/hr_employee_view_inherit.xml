@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Form View to Modify it  Job-->
+    <record id="view_hr_job_form_inherit" model="ir.ui.view">
+        <field name="name">hr.job.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="position_grade_id" options="{'no_create': True}"/>
+                <field name="survey_ids" widget="many2many_tags" domain="[('is_recruitment','=',True)]"
+                       options="{'no_create': True}"/>
+
+                <!-- Add your fields or attributes here -->
+            </xpath>
+
+        </field>
+    </record>
+    <record id="view_hr_job_survey_inherit" model="ir.ui.view">
+        <field name="name">hr.job.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="hr_users_ids" widget="many2many_tags" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="domain">[('id','in',hr_users_ids)]</attribute>
+                <attribute name="options">{'no_create':True}</attribute>
+            </xpath>
+
+        </field>
+    </record>
+    <!--     Inherit Form View to Modify it Employee -->
+    <record id="hr_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <!--                <div class="oe_button_box" name="expense_button_box">-->
+                <button name="get_disciplinary_cases_history"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-archive"
+                        string="Disciplinary History"
+                >
+                </button>
+                <button name="get_career_progression"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-list"
+                        string="Change of status"
+                >
+                </button>
+                <!--                </div>-->
+            </xpath>
+            <xpath expr="//h1[@class='d-flex']" position="after">
+                <h1 class="d-flex">
+                    <field name="arabic_name" placeholder="Employee's Arabic Name" required="True"/>
+                </h1>
+            </xpath>
+            <xpath position="after" expr="//field[@name='birthday']">
+                <field name="age"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group" position="inside">
+
+                <field name="address_home_per_id" context="{ 'show_address': 1,
+                   'default_type': 'private',
+                    'form_view_ref': 'base.res_partner_view_form_private'}"
+                       options="{&quot;always_reload&quot;: True, &quot;highlight_first_line&quot;: True,'no_create': True}"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group[4]" position="replace">
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group[5]" position="inside">
+                <field name="emergency_relation"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group" position="inside">
+                <group name="license" string="License">
+                    <field name="required_license1"/>
+                    <field name="required_license2"/>
+                </group>
+                <group name="insurance" string="Insurance Number">
+                    <field name="social_insurance_num"/>
+                    <field name="medical_insurance_num"/>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='managers']" position="after">
+                <group string="Service in company" name="service_in_company">
+                    <field name="len_years_service_in_company"/>
+                    <field name="previous_insured_years"/>
+                    <field name="total_insured_years"/>
+                </group>
+
+            </xpath>
+            <xpath expr="//field[@name='certificate']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='certificate']" position="after">
+                <field name="certificate_id" options="{'no_create':True}"/>
+            </xpath>
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="emp_type" attrs="{'readonly':[('employee_card_id','!=',False)]}"/>
+                <field name="employee_card_id" readonly="1"/>
+                <field name="gifted"/>
+                <field name="disability_type_id" options="{'no_create': True}"
+                       attrs="{'invisible':[('gifted','=',False)], 'required':[('gifted','=',True)]}"/>
+                <field name="disability_desc"
+                       attrs="{'invisible':[('gifted','=',False)], 'required':[('gifted','=',True)]}"/>
+                <field name="position_grade_id" options="{'no_create': True}"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Children &amp; Spouses Information">
+                    <group>
+                        <group>
+                            <field name="total_children"/>
+                        </group>
+                    </group>
+                    <field name="family_info_ids">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="birthday"/>
+                            <field name="medical_insurance_num"/>
+                            <field name="gender"/>
+                        </tree>
+                    </field>
+
+
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='employee_type']" position="attributes">
+                <attribute name="string">Employment Type</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it Department -->
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">hr.department.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="hr_business_partner_id" options="{'no_create': True}"
+                       domain="[('id','in',hr_business_partner_ids)]"/>
+                <field name="hr_business_partner_ids" widget="many2many_tags" invisible="1"
+                       options="{'no_create': True}"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_applicant_view_form" model="ir.ui.view">
+        <field name="name">hr.applicant.form</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='archive_applicant']" position="attributes">
+                <attribute name="string">Reject</attribute>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <!--                <button name="action_send_information_form" string="Send  survey old" type="object"-->
+                <!--                        class="oe_highlight"/>-->
+                <button name="%(kode_employee.send_survey_applicant_action)d"
+                        string="Send  survey " type="action" attrs="{'invisible':[('emp_id','!=',False)]}"
+                        class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//button[@name='action_makeMeeting']" position="after">
+                <button name="action_survey_user_input_completed"
+                        type="object"
+                        class="oe_stat_button"
+                        string="Answers"
+                        icon="fa-pencil-square-o">
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Applied Survey">
+                    <group>
+                        <group>
+                            <field name="survey_ids" options="{'no_create': True}" widget="many2many_tags"
+                                   invisible="1"/>
+                            <field name="survey_id" widget="many2many_tags"
+                                   options="{'no_create': True}" domain="[('id','in',survey_ids)]"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Assessment">
+                    <field name="assessment_ids">
+                        <tree editable="bottom">
+                            <field name="assessment_name_id" options="{'no_create': True}"/>
+                            <field name="evaluation"/>
+                        </tree>
+                    </field>
+                </page>
+                <!-- Add your fields or attributes here -->
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="hr_recruitment.hr_applicant_refuse_reason_action" model="ir.actions.act_window">
+        <field name="name">Rejection Reasons</field>
+        <field name="res_model">hr.applicant.refuse.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+            id="hr_recruitment.menu_hr_applicant_refuse_reason"
+            action="hr_recruitment.hr_applicant_refuse_reason_action"
+            parent="hr_recruitment.menu_hr_recruitment_configuration"
+            sequence="10"/>
+
+</odoo>

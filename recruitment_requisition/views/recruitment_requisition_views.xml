@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_applicant_view_search_bis_inherit_requisition" model="ir.ui.view">
+            <field name="name">hr.applicant.view.search.inherit.requisition</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_search_bis"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="requisition_id" string="Requisition"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_job_applications_requisition">
+            <field name="name">Applications</field>
+            <field name="res_model">hr.applicant</field>
+            <field name="view_mode">kanban,tree,form,graph,calendar,pivot,activity</field>
+            <field name="search_view_id" ref="hr_recruitment.hr_applicant_view_search_bis"/>
+            <field name="context">{'search_default_requisition_id': [active_id], 'default_requisition_id': active_id}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No applications yet
+                </p>
+                <p>
+                    Odoo helps you track applicants in the recruitment
+                    process and follow up all operations: meetings, interviews, etc.
+                </p>
+                <p>
+                    Applicants and their attached CV are created automatically when an email is sent.
+                    If you install the document management modules, all resumes are indexed automatically,
+                    so that you can easily search through their content.
+                </p>
+            </field>
+        </record>
+        <record id="recruitment_requisition_form_view" model="ir.ui.view">
+            <field name="name">recruitment.requisition.form</field>
+            <field name="model">recruitment.requisition</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="action_submit" string="Submit" class="oe_highlight"
+                                states="draft" type="object"/>
+                        <button name="approval_process" string="Approve" class="oe_highlight"
+                                states="submit,bp_approval,hr_m_approval,ceo_approval" type="object"/>
+                        <button name="action_done" string="Done" class="oe_highlight"
+                                states="under_recruitment" type="object"/>
+                        <button name="action_reset" string="Reset to Draft" class="oe_highlight"
+                                states="reject,bp_approval,hr_m_approval,ceo_approval" type="object"/>
+                        <button name="action_reject" string="Reject" class="oe_highlight"
+                                states="draft,submit,bp_approval,hr_m_approval,ceo_approval" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,under_recruitment,done"/>
+                    </header>
+
+                    <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button class="oe_stat_button"
+                                    icon="fa-pencil"
+                                    name="%(action_hr_job_applications_requisition)d"
+                                    context="{'active_test': False}"
+                                    type="action">
+                                <field name="all_application_count" widget="statinfo" string="Job Applications"/>
+                            </button>
+                            <button class="oe_stat_button" name="action_open_hired_employees" type="object"
+                                    icon="fa-book"
+                                    attrs="{'invisible': [('all_hired_employees_count', '=', 0)]}">
+                                <field name="all_hired_employees_count" widget="statinfo" string="Employees"/>
+                            </button>
+
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Name ..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="job_id" options="{'no_create': True, 'no_create_edit':True}"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="department_id"/>
+                                <field name="manager_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="create_date" string="Request Date"/>
+                                <field name="desired_hiring_date"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="contract_type_id"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="employment_type"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="working_plan"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="whole_cycle_duration"/>
+                            </group>
+                            <group>
+                                <field name="no_of_vacancies"
+                                       attrs="{'readonly':[('state', 'in', ['done', 'reject'])]}"/>
+                                <field name="hiring_reason"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="replacement_reason_id"
+                                       attrs="{'invisible':[('hiring_reason', '=', 'new')], 'required':[('hiring_reason', '!=', 'new')], 'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="former_emp_id"
+                                       attrs="{'invisible':[('hiring_reason', '=', 'new')], 'required':[('hiring_reason', '!=', 'new')], 'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="former_emp_barcode"
+                                       attrs="{'invisible':[('hiring_reason', '=', 'new')], 'required':[('hiring_reason', '!=', 'new')]}"/>
+                                <field name="vacancy_date"
+                                       attrs="{'invisible':[('hiring_reason', '=', 'new')], 'required':[('hiring_reason', '!=', 'new')], 'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="included_in_wfp"
+                                       attrs="{'invisible':[('hiring_reason', '!=', 'new')], 'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                                <field name="wfp_reason" required="1"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Job Description">
+                                <field name="description" options="{'collaborative': true}"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                            </page>
+                            <page string="Job Requirements">
+                                <field name="requirements" options="{'collaborative': true}"
+                                       attrs="{'readonly':[('state', 'in', ['under_recruitment', 'done', 'reject'])]}"/>
+                            </page>
+                            <page string="Log Times">
+                                <field name="log_ids">
+                                    <tree string="Requisition Logs" editable="bottom" create="false">
+                                        <field name="create_date" string="Approval Date"/>
+                                        <field name="approved_by"/>
+                                        <field name="approval_state"/>
+                                        <field name="duration"/>
+                                        <field name="requisition_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Durations of Hiring Employees">
+                                <field name="durations_of_hiring_employees">
+                                    <tree string="Durations of Hiring Employees" editable="bottom" create="false">
+                                        <field name="create_date" string="Hiring Date"/>
+                                        <field name="employee_id"/>
+                                        <field name="duration"/>
+                                        <field name="requisition_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="recruitment_requisition_tree_view" model="ir.ui.view">
+            <field name="name">recruitment.requisition.tree</field>
+            <field name="model">recruitment.requisition</field>
+            <field name="arch" type="xml">
+                <tree string="Recruitment Requisitions">
+                    <field name="name"/>
+                    <field name="create_date" string="Request Date"/>
+                    <field name="job_id"/>
+                    <field name="department_id"/>
+                    <field name="manager_id"/>
+                    <field name="no_of_vacancies"/>
+                    <field name="hiring_reason"/>
+                    <field name="employment_type"/>
+                    <field name="working_plan"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="recruitment_requisition_action" model="ir.actions.act_window">
+            <field name="name">Recruitment Requisition</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">recruitment.requisition</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <menuitem id="recruitment_requisition_action_menu" name="Requisitions" groups="hr.group_hr_user"
+                  parent="hr_recruitment.menu_crm_case_categ0_act_job" action="recruitment_requisition_action"/>
+
+    </data>
+</odoo>

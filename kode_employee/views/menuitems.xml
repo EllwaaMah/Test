@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="position_grade_action_menu" name="Position Grade"
+                  parent="hr.menu_human_resources_configuration" action="position_grade_action"/>
+        <menuitem id="certificate_level_action_menu" name="Certificate Level"
+                  parent="hr.menu_human_resources_configuration" action="certificate_level_action"/>
+
+        <menuitem id="disability_type_action_menu" name="Disability Type"
+                  parent="hr.menu_human_resources_configuration" action="disability_type_action"/>
+
+        <menuitem id="disciplinary_action_action_menu" name="Disciplinary Action"
+                  parent="hr.menu_human_resources_configuration" action="disciplinary_action_action"/>
+
+
+        <menuitem id="employee_category_action_menu" name="Violation Type"
+                  parent="hr.menu_human_resources_configuration" action="employee_category_action"/>
+
+        <menuitem id="disciplinary_cases_history_action_menu" name="Disciplinary History"
+                  parent="hr.menu_hr_employee_payroll" action="disciplinary_cases_history_action"/>
+
+        <menuitem id="career_progression_action_menu" name="Change of status "
+                  parent="hr.menu_hr_employee_payroll" action="career_progression_action"/>
+
+        <menuitem id="assessment_name_action_menu" name="Assessment Name"
+                  parent="hr_recruitment.menu_hr_recruitment_configuration" action="assessment_name_action"/>
+    </data>
+</odoo>

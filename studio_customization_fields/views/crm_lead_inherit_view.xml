@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="crm_lead_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="survey_id"/>
+                    <field name="is_information_form_stage"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="action_send_information_form" string="Send Membership Finalization Survey"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible':[('is_information_form_stage','=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{"required": [["name","=","asdwdasd"]]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="x_studio_referrer_name" string="Referrer Name"/>
+<!--                    <field name="x_studio_referrer_1" string="Referrer" attrs="{}"/>-->
+<!--                    <field name="x_studio_relationship_to_referrer_1"-->
+<!--                           string="Relationship to Referrer"/>-->
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="after">
+                    <field name="x_studio_membership_id" string="Referrer Membership ID"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="x_studio_downpayment_done_date" string="Downpayment Done Date" force_save="True"
+                           readonly="1"/>
+                        <field name="x_studio_phone_number_of_referrer" string="Phone Number of Referrer"/>
+                    <field name="x_studio_referrer" string="Referrer"/>
+                </xpath>
+                <xpath expr="//group[@name='opportunity_info']" position="attributes">
+                    <attribute name="attrs">{"invisible": []}</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Form Information" name="studio_page_gy6qK">
+                        <group name="studio_group_gy6qK">
+                            <group name="studio_group_gy6qK_left" string="General Information">
+                                <field name="x_studio_name_of_development_and_unit_number"/>
+                                <field name="x_studio_occupation_company_name"/>
+                                <field name="x_studio_date_of_birth"/>
+                                <field name="x_studio_national_id_" string="National ID #"/>
+                            </group>
+                            <group name="studio_group_gy6qK_right" string="Lifestyle &amp; Activities">
+                                <field name="x_studio_what_do_you_currently_do_for_exercise"
+                                       string="What do you currently do for exercise?"/>
+<!--                                <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies"-->
+<!--                                       string="Besides sports, what are your interests and hobbies? "/>-->
+                                <field name="x_studio_how_many_times_do_you_exercise_per_week"/>
+                                <field name="x_studio_if_yes_which_sport_clubs"/>
+                                <field name="x_studio_what_makes_you_go_to_the_club_most_often"/>
+                                <field name="x_studio_how_often_do_you_go_to_your_preferred_club_1"
+                                       string="How often do you go to your preferred club?"/>
+                                <field name="x_studio_how_often_do_you_eat_at_the_club"
+                                       string="How often do you eat at the club?"/>
+<!--                                <field name="x_studio_what_services_that_you_would_like_to_see_at_the_club"-->
+<!--                                       string="What services that you would like to see at the club?" widget="radio"/>-->
+                                <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies_1"
+                                       string="Besides sports, what are your interests and hobbies?"/>
+                                <field name="x_studio_name_of_sports_club" string="Name of Sports Club"/>
+                                <field name="x_studio_how_often_do_you_go_to_your_preferred_club_1"
+                                       string="How often do you go to your preferred club?"/>
+                                <field name="x_studio_what_school_nursery_does_your_child_attend" string="What school/ Nursery does your child attend?"/>
+                                <field name="x_studio_how_did_you_hear_about_us" string="How did you hear about us?"/>
+                                <field name="x_studio_area_of_home_address" string="Area of Home Address"/>
+                            </group>
+                        </group>
+                        <group name="studio_group_eTFXB">
+                            <group name="studio_group_eTFXB_left" string="Education">
+                                <field name="x_studio_highest_level_of_education_received"/>
+                                <field name="x_studio_name_of_university"/>
+                            </group>
+                            <group name="studio_group_eTFXB_right" string="Relationships &amp; Family">
+                                <field name="x_studio_marital_status"/>
+                                <field name="x_studio_name_of_spouse" string="Name of Spouse"/>
+                                <field name="x_studio_how_many_children_do_you_have"/>
+                                <field name="x_studio_text_field_ctg1R"
+                                       string="Please list the non-related sports services that you would like to see at KODE"/>
+
+                            </group>
+                        </group>
+                        <group name="studio_group_eTFXB">
+                            <group name="studio_group_eTFXB_left" string="Education">
+                                <field name="x_studio_highest_level_of_education_received"/>
+                                <field name="x_studio_name_of_university"/>
+                            </group>
+                            <group name="studio_group_eTFXB_right" string="Relationships &amp; Family">
+                                <field name="x_studio_marital_status"/>
+                                <field name="x_studio_name_of_spouse" string="Name of Spouse"/>
+                                <field name="x_studio_how_many_children_do_you_have"/>
+                                <field name="x_studio_text_field_ctg1R"
+                                       string="Please list the non-related sports services that you would like to see at KODE"/>
+
+                            </group>
+                        </group>
+                        <group name="studio_group_DC5Dk">
+                            <group name="studio_group_DC5Dk_left" string="Misc.">
+                                <field name="x_studio_how_can_we_make_your_dreams_come_true"
+                                       placeholder="Think about what you feel is missing from your current club experience
+                        and please share with us your thoughts. Every great accomplishment starts off with a small idea,
+                        let’s create one together!"
+                                       string="How can we make your dreams come true?"/>
+
+                            </group>
+                            <group name="studio_group_DC5Dk_right"/>
+                        </group>
+                    </page>
+                    <page string="Send Email"  name="studio_page_jTjeM">
+                        <group name="studio_group_jTjeM">
+                            <group name="studio_group_jTjeM_left" string="Referral Accepted">
+                                <field name="x_studio_shopify_code_1" string="Shopify Code" attrs="{'invisible': []}"/>
+                                <field name="x_studio_referral_accepted" string="Referral Accepted"
+                                       attrs="{'invisible': [['x_studio_shopify_code_1','=',False]]}"/>
+                                <field name="x_studio_referral_to_be_interviewed" string="Referral to be interviewed"/>
+                            </group>
+                            <group name="studio_group_jTjeM_right" string="Rejection Emails">
+                                <field name="x_studio_email_to_send" string="Email to send" force_save="True"
+                                       attrs="{'invisible': [], 'required': [['stage_id','=',9]]}"/>
+                                <field name="x_studio_rejection_reason_1" string="Rejection Reason 1"
+                                       attrs="{'invisible': [['x_studio_email_to_send','!=','Option to share new referral name/number']]}"/>
+                                <field name="x_studio_rejection_reason_2" string="Rejection Reason 2"
+                                       attrs="{'invisible': ['|',['x_studio_rejection_reason_1','=',False],['x_studio_email_to_send','!=','Option to share new referral name/number']]}"/>
+                                <field name="x_studio_rejection_reason_3" string="Rejection Reason 3"
+                                       attrs="{'invisible': ['|',['x_studio_rejection_reason_2','=',False],['x_studio_email_to_send','!=','Option to share new referral name/number']]}"/>
+                            </group>
+                        </group>
+                        <group name="studio_group_fgz1p">
+                            <group name="studio_group_fgz1p_left"/>
+                            <group name="studio_group_fgz1p_right"/>
+                        </group>
+                    </page>
+                    <page string="Contact Form Update" name="studio_page_up3D0">
+                        <group name="studio_group_up3D0">
+                            <group name="studio_group_up3D0_left">
+                                <field name="x_studio_dob_contact" string="DoB - Contact"/>
+                                <field name="x_studio_mobile_contact" string="mobile - contact"/>
+                                <field name="x_studio_mobile_city" string="mobile - city"/>
+                                <field name="x_studio_occupation_company_name_contact"
+                                       string="Occupation &amp; Company name - Contact"/>
+                                <field name="x_studio_education_contact" string="Education - Contact"/>
+                            </group>
+                            <group name="studio_group_up3D0_right"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="/form[1]/sheet[1]/div[2]" position="after">
+                    <group name="studio_group_J32EB">
+                        <group name="studio_group_J32EB_left"/>
+                        <group name="studio_group_J32EB_right"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_crm_case_opportunities_filter_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.search.opportunity customization</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='city']" position="replace"/>
+                <xpath expr="//field[@name='country_id']" position="replace"/>
+                <xpath expr="//field[@name='tag_ids']" position="replace">
+                    <field name="x_studio_shopify_code_1"/>
+                </xpath>
+                <xpath expr="//field[@name='phone_mobile_search']" position="after">
+                    <field name="email_from"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sr_pdc_payment,access.sr.pdc.payment,model_sr_pdc_payment,,1,1,1,1
+access_batch_pdc_payment,access.batch.pdc.payment,model_batch_pdc_payment,,1,1,1,1
+access_pdc_payment_wizard,access_pdc_payment_wizard,model_pdc_payment_wizard,,1,1,1,1
+access_pdc_payment_wizard_line,access_pdc_payment_wizard_line,model_pdc_payment_wizard_line,,1,1,1,1

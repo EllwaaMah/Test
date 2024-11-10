@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization_fields.active_batch_cheques_93eea34a-4664-4e5c-8103-026d1d524b46" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.active_batch_cheques_80089cb2-dc0f-4b31-af62-292db56a40e2"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="studio_customization_fields.cheque_reference_bat_0146228a-e328-4550-9084-d9dda4f59bc0" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_related_field_ba_5cc23588-8a61-400e-9d11-a7e9c54dfc36"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">" "</field>
+  </record>
+  <record id="studio_customization_fields.currency_batch_chequ_bd6e5046-5aa0-4e9f-aa1b-c3f61dc05596" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.currency_batch_chequ_a1e8ca08-004b-421c-92e7-c8febe31d3c6"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">76</field>
+  </record>
+  <record id="studio_customization_fields.new_integer_batch_ch_071ad49e-56d3-409c-acf6-170c9f5ab1eb" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_integer_batch_ch_5668096b-e042-460c-8f0f-28c14875c4f8"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">"1"</field>
+  </record>
+  <record id="studio_customization_fields.new_integer_batch_ch_d9b2275a-b131-4020-8942-93bd0e16bab4" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_integer_batch_ch_6feaa306-c2cf-4449-a46f-df96dfc90903"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">"0"</field>
+  </record>
+  <record id="studio_customization_fields.new_integer_contact_f0f73add-262f-4092-9879-9b47ad0e589c" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_integer_contact_80e69f03-c7f9-47c1-9e94-a13c0f67d4b1"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">"0"</field>
+  </record>
+  <record id="studio_customization_fields.new_integer_payments_29446980-e0fb-4027-8824-6d79a495605b" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_integer_payments_99fc6509-eb07-4197-a68f-600b5c2aef5d"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">""</field>
+  </record>
+  <record id="studio_customization_fields.new_integer_payments_4a62e5d3-9fd6-43f1-b9ef-c238062497b9" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.new_integer_payments_098dd616-fbea-45c9-80b1-a87672a6a7c8"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">"0"</field>
+  </record>
+  <record id="studio_customization_fields.pipeline_status_bar__ad119d79-bb31-47cb-8a7b-1d79e0dddec8" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.pipeline_status_bar__6f251c96-4296-4c28-877e-580ab3dcc7c6"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">false</field>
+  </record>
+  <record id="studio_customization_fields.sequence_batch_chequ_b0106882-6be1-4d06-a5c9-5df89d6212cb" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="studio_customization_fields.sequence_batch_chequ_40194dee-1d63-4124-a3eb-ca54c838fb8c"/>
+    <field name="condition" eval="False"/>
+    <field name="json_value">10</field>
+  </record>
+</odoo>

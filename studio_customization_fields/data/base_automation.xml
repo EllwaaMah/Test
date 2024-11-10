@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization_fields.1st_reminder_members_d1e67c5e-f69c-45f0-9e7c-c17cbc028ca4" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.1st_reminder_members_e49d067b-bcf1-45ca-a0cd-a9c9bc1b4307"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">["&amp;",["stage_id","=","Downpayment Done"],["x_studio_downpayment_done_date","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run">2022-04-25 09:25:35</field>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" ref="studio_customization_fields.new_date_lead_opport_f9c68091-3c70-480e-8740-d6f6c816c441"/>
+    <field name="trg_date_range">83</field>
+    <field name="trg_date_range_type">day</field>
+    <field name="trigger">on_time</field>
+  </record>
+  <record id="studio_customization_fields.2nd_reminder_members_522eb806-b5d4-432d-851b-00b820211f3e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.2nd_reminder_members_d4276f4b-ad3a-4ff2-b62d-925671ea562c"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">["&amp;",["stage_id","=","Downpayment Done"],["x_studio_downpayment_done_date","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run">2022-04-25 09:25:35</field>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" ref="studio_customization_fields.new_date_lead_opport_f9c68091-3c70-480e-8740-d6f6c816c441"/>
+    <field name="trg_date_range">104</field>
+    <field name="trg_date_range_type">day</field>
+    <field name="trigger">on_time</field>
+  </record>
+  <record id="studio_customization_fields.3_cheque_batch_2a759b7a-8d9b-4bbc-82fc-d732f476d3b1" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.3_cheque_batch_93590c10-84ff-4741-863b-b5e26bf1bd4f"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","3"]]</field>
+    <field name="filter_pre_domain">[["x_studio_cheque_3","!=",False]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.3_cheque_batch_faeafe33-809e-4bdc-9bd6-cbb2f97fd102" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.3_cheque_batch_aed7b553-9c59-44df-beb9-eff34cc880b4"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","6"]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.3rd_reminder_members_bf638caf-46e9-4ee0-a081-4dab93efa1e6" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.3rd_reminder_members_13b7a7f8-cc20-4f9a-bc4e-e27a8eb789f2"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">["&amp;",["stage_id","=","Downpayment Done"],["x_studio_downpayment_done_date","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run">2022-04-25 09:25:35</field>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" ref="studio_customization_fields.new_date_lead_opport_f9c68091-3c70-480e-8740-d6f6c816c441"/>
+    <field name="trg_date_range">136</field>
+    <field name="trg_date_range_type">day</field>
+    <field name="trigger">on_time</field>
+  </record>
+  <record id="studio_customization_fields.6_cheque_batch_69dc984e-70c6-486a-812c-0990d6d2eae7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.6_cheque_batch_653caf3b-5d3e-45b9-9a00-dd8c01842f66"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","12"]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.allow_access_to_app_19434958-68a6-4dfd-981c-94f6e4d2fa76" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.allow_access_to_app_f8fa7f8d-4737-48fe-b514-daa702783c38"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["stage_id.id","=",11]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.bank_transfer_dcb1dafc-ff9d-4615-b73d-b9a352ad818e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.bank_transfer_58eb9d8d-1172-4b46-b7cc-7c12c4191c59"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.batch_sequences_6d2b0bc6-5ae5-4221-8d6b-2434b742186e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.batch_sequences_4f67feea-0c63-4fb3-b6c9-ac258ed61211"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization_fields.cheque_reference_0a455202-ed49-4122-8283-c4f6ab21d80c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.cheque_reference_3047730c-c6ce-45aa-a09f-9b253992aab7"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.downpayment_done_136b5e4c-72d9-45a9-9838-a1cf55516261" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.downpayment_done_b1a488e9-8026-4fbd-b878-a254dd0d0fee"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[["stage_id.id","=",3]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run">2021-11-30 05:25:34</field>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" ref="studio_customization_fields.new_date_lead_opport_f9c68091-3c70-480e-8740-d6f6c816c441"/>
+    <field name="trg_date_range">14</field>
+    <field name="trg_date_range_type">day</field>
+    <field name="trigger">on_time</field>
+  </record>
+  <record id="studio_customization_fields.fill_name_35a1903e-54f5-47ed-8e91-a15a725b19e6" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.fill_name_b0cab305-135b-4f2e-8a9b-732d2e570036"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_3_45b64887-1200-4513-bf3d-1696dd59ea0d" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.number_of_payments_3_800ff1de-7014-4b31-891b-da164644ab92"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","6"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_3_842fc0fc-ee6b-4d00-a3f5-b6ca66486db2" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.number_of_payments_3_59fb5bb6-1c0d-458b-b64e-6047887d13b3"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","12"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_a3c06e1c-0334-469a-bcd4-384ff5746d74" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.number_of_payments_4c5e1894-52fc-4d3a-a664-a2592de74c83"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_amount_of_cheques_to_create","=","3"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.referral_accepted_31ac7d95-6c5c-405e-b699-37ad91ab2a80" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.referral_accepted_131cc237-aaf7-4439-a3fb-290ba80ca209"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_shopify_code_1","!=",False]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_has_not_b_60f66468-44a1-4cb1-88e1-713631b14fc7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_has_not_b_4c9ed67d-d3f4-4f7a-be35-0ebc05c79c21"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_email_to_send","=","Option to share new referral name/number"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_has_not_b_e9260713-5562-4adf-a7ed-382e13137786" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_has_not_b_eec1255b-4b18-400f-80de-ded57226e8a7"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_email_to_send","=","we were unable to reach your referral"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__0d40a727-c050-4fc0-80b6-d784bd13046f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_referral__a156bf7d-cc3d-47dc-8977-629c7fcc19a9"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain">[["x_studio_membership_code","=",False]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__effdcb89-bebb-4149-913d-e3397d539133" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_referral__44308bf0-850a-47be-bba8-d7da68486e2c"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_email_to_send","=","Referral Rejected"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__fb3cec78-c93b-4715-a4c7-0edc9f4a85fb" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_referral__4cbe98c7-8590-4ac6-a1e5-b3fae91d8bb9"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.send_email_we_were_u_243cc2cc-5cb5-43c7-8e11-e817022bd707" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.send_email_we_were_u_7b8fad33-4c7a-49d8-8bf7-56ec053dcb3e"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_email_to_send","=","we were unable to receive a confirmed referral"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.set_downpayment_done_6663e438-7d78-4fc8-ad64-5f80c414af24" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.set_downpayment_done_4f27881a-bf4e-46b7-90fe-4cacc3b5489c"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["stage_id.id","=",2]]</field>
+    <field name="filter_pre_domain">[["x_studio_referral_accepted_date","=",False]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.set_downpayment_done_d03d316a-54b2-4261-b6b2-149d28552fc2" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.set_downpayment_done_80bdaac3-f991-4999-9f36-f83e5bf2a8c9"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["stage_id.id","=",3]]</field>
+    <field name="filter_pre_domain">[["x_studio_downpayment_done_date","=",False]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_19a157d3-ff1e-4838-be41-3179800e6ab8" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_1_74b0ba05-f739-45b3-87fd-ec4dd8456140" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_1_805bffa6-485d-4850-855b-44018357166c"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_1e5248e3-981e-4ae9-be44-09b90e5222e8" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_cd9bcb48-3f66-4e0d-9b70-7c40448eef87"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_2151b1f9-2200-4a03-b09f-1050965da640" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_4761f7de-546d-46e5-9007-cf13a88617ce"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_23e17903-8df0-49d4-aa34-b8d189905a73" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_d33c7534-ed9a-4a62-b878-52e547ff5652"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_37658113-caa1-4d3b-81ce-b063b1ab48ff" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_b34fbf71-551b-467d-86a5-b6fa8468b63f"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_3e7964f3-72b5-497c-bd47-625d0c51524a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_1a8cc650-bbc5-4df8-b492-5072bae1845f"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_4f6fdb01-89b7-44ba-b2d5-b7826a6efa02" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_afa38452-0ed6-427a-adf8-ca8f6ff07fb9"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_6d4c5ea2-8a84-4fdd-8250-d0250385a37a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_3fa48f34-e7f7-4719-b668-f29f9b28fa24"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_933508b9-aba1-4311-bf07-7fd6a1707d21" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_5f8c1e6c-d7f5-4c0c-97d1-09d35fcbe158"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_970afc7d-7ada-41e3-9d68-fb81caa47943" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_d1c78a87-c9e1-4a54-b139-43e659da0f96"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_bd4de5fd-2ba7-499c-aa19-575f0b52bc9c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_5b8e8b6f-7200-4758-93d7-a2c869346bc4"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_beed1352-a6fe-4c4d-89f9-e546be9e989d" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_d307fceb-7435-43d7-bca5-fe454927545e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.single_cheque_86984593-9668-43fa-9988-e2ec56138ea7"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+  </record>
+  <record id="studio_customization_fields.stage_new_on_creatio_d58f41c2-3156-46db-bd52-bb691dcaea84" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.stage_new_on_creatio_343b3501-ab53-4bd6-9fd0-ef4439338063"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization_fields.today_s_date_58267519-7028-45ea-bf5a-cba004e882d3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.today_s_date_c3e5b981-cd9a-4ff0-9cfd-69947bff8d5e"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization_fields.update_in_2_weeks_01aa981f-f070-4215-a457-63bae7370f7b" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.update_in_2_weeks_d2e56363-d9eb-4c4e-9caa-8065dc5eb968"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">["&amp;",["stage_id","=","Downpayment Done"],["x_studio_downpayment_done_date","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run">2022-04-25 09:25:35</field>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" ref="studio_customization_fields.new_date_lead_opport_f9c68091-3c70-480e-8740-d6f6c816c441"/>
+    <field name="trg_date_range">30</field>
+    <field name="trg_date_range_type">day</field>
+    <field name="trigger">on_time</field>
+  </record>
+  <record id="studio_customization_fields.update_national_id_502ab34a-d8ed-4d15-b11a-4b5cb055a207" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.update_national_id_d369c247-ce1f-446c-a6dd-6d114615a9b4"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.when_bounced_0f048ca9-876f-4df2-ac8f-4a3c55385d1f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.when_bounced_c85e6c89-88d1-49e0-8cc3-81371b2f11d6"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["state","=","cancel"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.when_bounced_0f70c81d-cf05-47e8-888c-cefbce7b1cfb" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.when_bounced_a38056ca-92bc-429a-9055-8f2aa7b3cd10"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["state","=","posted"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization_fields.zero_reference_0e1c7495-f110-4458-8327-545301450654" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization_fields.zero_reference_76a09217-d555-4600-a0ee-b92690f2a145"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+</odoo>

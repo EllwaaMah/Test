@@ -1,0 +1,176 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* isky_notification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-14 13:31+0000\n"
+"PO-Revision-Date: 2019-10-17 13:32+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: isky_notification
+#: model_terms:ir.ui.view,arch_db:isky_notification.isky_notification_form
+msgid "Cancel Notification"
+msgstr "الغاء الاشعارات"
+
+#. module: isky_notification
+#: selection:isky.notification,state:0
+msgid "Canceled"
+msgstr "تم الغاؤها"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__create_uid
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__create_uid
+msgid "Created by"
+msgstr "تم انشاؤه بواسة"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__create_date
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__display_name
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: isky_notification
+#: selection:isky.notification,state:0
+msgid "Draft"
+msgstr "مسوده"
+
+#. module: isky_notification
+#: model:ir.ui.menu,name:isky_notification.isky_notification_action_menu
+msgid "Expiry Date Notification"
+msgstr "تاريخ انتهاء صلاحية الاشعار"
+
+#. module: isky_notification
+#: model:ir.actions.server,name:isky_notification.isky_expiry_notification_ir_actions_server
+#: model:ir.cron,cron_name:isky_notification.isky_expiry_notification
+#: model:ir.cron,name:isky_notification.isky_expiry_notification
+msgid "Expiry Notification"
+msgstr "الاشعارات منتهيه الصلاحية"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__field_id
+msgid "Fields"
+msgstr "حقول"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__notification_group_ids
+#: selection:notification.line,notification_type:0
+msgid "Groups"
+msgstr "مجموعات"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__id
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__id
+msgid "ID"
+msgstr "هوية شخصية"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification____last_update
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line____last_update
+msgid "Last Modified on"
+msgstr "اخر تعديل على "
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__write_uid
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__write_uid
+msgid "Last Updated by"
+msgstr "اخر تحديث بواسطة"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__write_date
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__write_date
+msgid "Last Updated on"
+msgstr "اخر تحديث على "
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__line_ids
+msgid "Line"
+msgstr "خط"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__model_id
+msgid "Model"
+msgstr "مودل"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__name
+#: model_terms:ir.ui.view,arch_db:isky_notification.isky_notification_form
+msgid "Name"
+msgstr "الاسم"
+
+#. module: isky_notification
+#: model:ir.actions.act_window,name:isky_notification.isky_notification_action
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__notification_id
+msgid "Notification"
+msgstr "اشعار"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__notification_type
+msgid "Notification For"
+msgstr "اشعار ل"
+
+#. module: isky_notification
+#: model_terms:ir.ui.view,arch_db:isky_notification.isky_notification_form
+msgid "Notification Lines"
+msgstr "خطوط الاشعارات"
+
+#. module: isky_notification
+#: selection:notification.line,notification_type:0
+msgid "Other"
+msgstr "اخرى"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__receipt_ids
+msgid "Receipts"
+msgstr "المستقبلين"
+
+#. module: isky_notification
+#: model_terms:ir.ui.view,arch_db:isky_notification.isky_notification_form
+msgid "Run Notification"
+msgstr "عمل اشعار"
+
+#. module: isky_notification
+#: selection:isky.notification,state:0
+msgid "Running"
+msgstr "ساريه"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__shifting_days
+msgid "Shifting Days"
+msgstr "أيام الورديات"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_isky_notification__state
+msgid "Status"
+msgstr "حاله"
+
+#. module: isky_notification
+#: model:ir.model.fields,field_description:isky_notification.field_notification_line__notification_user_ids
+#: selection:notification.line,notification_type:0
+msgid "Users"
+msgstr "مستخدمين"
+
+#. module: isky_notification
+#: model:ir.model,name:isky_notification.model_isky_notification
+msgid "isky.notification"
+msgstr ""
+
+#. module: isky_notification
+#: model:ir.model,name:isky_notification.model_notification_line
+msgid "notification.line"
+msgstr ""

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Batch PDC Payment Action -->
+
+    <!-- Paper Format -->
+    <record id="paperformat_batch_pdc_and_account_payment" model="report.paperformat">
+        <field name="name">Batch PDC Payment</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Batch PDC Payment Action -->
+    <record id="action_report_batch_pdc_payment" model="ir.actions.report">
+        <field name="name">Batch PDC Payment</field>
+        <field name="model">batch.pdc.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sr_pdc_management.batch_pdc_payment_report_template</field>
+        <field name="report_file">sr_pdc_management.batch_pdc_payment_report_template</field>
+        <field name="binding_model_id" ref="model_batch_pdc_payment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_batch_pdc_and_account_payment"/>
+    </record>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- Down Payment Receive -->
+    <record id="action_report_down_account_payment_receive" model="ir.actions.report">
+        <field name="name">Down Payment</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sr_pdc_management.down_account_payment_receive_report_template</field>
+        <field name="report_file">sr_pdc_management.down_account_payment_receive_report_template</field>
+        <field name="binding_type">report</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="paperformat_id" ref="paperformat_batch_pdc_and_account_payment"/>
+    </record>
+
+<!-- Down Payment Send -->
+    <record id="action_report_down_account_payment_send" model="ir.actions.report">
+        <field name="name">Down Payment</field>
+        <field name="model">account.payment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sr_pdc_management.down_account_payment_send_report_template</field>
+        <field name="report_file">sr_pdc_management.down_account_payment_send_report_template</field>
+        <field name="binding_type">report</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="paperformat_id" ref="paperformat_batch_pdc_and_account_payment"/>
+    </record>
+</odoo>

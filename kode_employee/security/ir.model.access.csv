@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_position_grade,position.grade,model_position_grade,,1,1,1,1
+access_disability_type,disability.type,model_disability_type,,1,1,1,1
+access_family_information,access_family_information,model_family_information,,1,1,1,1
+access_violation_type,access_violation_type,model_violation_type,,1,1,1,1
+access_disciplinary_action,access_disciplinary_action,model_disciplinary_action,,1,1,1,1
+access_disciplinary_cases_history,access_disciplinary_cases_history,model_disciplinary_cases_history,,1,1,1,1
+access_career_progression,access_career_progression,model_career_progression,,1,1,1,1
+kode_employee.access_assessment_name,access_assessment_name,kode_employee.model_assessment_name,,1,1,1,1
+kode_employee.access_hr_employee_certificate,access_hr_employee_certificate,kode_employee.model_hr_employee_certificate,,1,1,1,1
+kode_employee.access_hr_applicant_assessment_line,access_hr_applicant_assessment_line,kode_employee.model_hr_applicant_assessment_line,,1,1,1,1
+kode_employee.access_send_survey_applicant,access_send_survey_applicant,kode_employee.model_send_survey_applicant,,1,1,1,1
+

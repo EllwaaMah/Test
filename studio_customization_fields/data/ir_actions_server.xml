@@ -1,0 +1,1353 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization_fields.1st_reminder_members_e49d067b-bcf1-45ca-a0cd-a9c9bc1b4307" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">2nd Reminder - Membership Finalization Reminder</field>
+    <field name="sequence">5</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.2nd_reminder_members_d4276f4b-ad3a-4ff2-b62d-925671ea562c" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">3rd Reminder - Membership Finalization Reminder</field>
+    <field name="sequence">5</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_1_805bffa6-485d-4850-855b-44018357166c" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 1</field>
+    <field name="sequence">5</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 2</field>
+    <field name="sequence">6</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 3</field>
+    <field name="sequence">7</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.zero_reference_76a09217-d555-4600-a0ee-b92690f2a145" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Zero reference</field>
+    <field name="sequence">17</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.3_cheque_batch_93590c10-84ff-4741-863b-b5e26bf1bd4f" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [ref('studio_customization_fields.single_cheque_1_805bffa6-485d-4850-855b-44018357166c'), ref('studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7'), ref('studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89'), ref('studio_customization_fields.zero_reference_76a09217-d555-4600-a0ee-b92690f2a145')])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">3-Cheque Batch</field>
+    <field name="sequence">6</field>
+    <field name="state">multi</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_5f8c1e6c-d7f5-4c0c-97d1-09d35fcbe158" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 4</field>
+    <field name="sequence">8</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_d1c78a87-c9e1-4a54-b139-43e659da0f96" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 5</field>
+    <field name="sequence">9</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_4761f7de-546d-46e5-9007-cf13a88617ce" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 6</field>
+    <field name="sequence">10</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.3_cheque_batch_aed7b553-9c59-44df-beb9-eff34cc880b4" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [ref('studio_customization_fields.single_cheque_1_805bffa6-485d-4850-855b-44018357166c'), ref('studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7'), ref('studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89'), ref('studio_customization_fields.single_cheque_5f8c1e6c-d7f5-4c0c-97d1-09d35fcbe158'), ref('studio_customization_fields.single_cheque_d1c78a87-c9e1-4a54-b139-43e659da0f96'), ref('studio_customization_fields.single_cheque_4761f7de-546d-46e5-9007-cf13a88617ce'), ref('studio_customization_fields.zero_reference_76a09217-d555-4600-a0ee-b92690f2a145')])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">6-Cheque Batch</field>
+    <field name="sequence">7</field>
+    <field name="state">multi</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_1_if_c_9bf48aa2-2e81-4db1-a648-82ea53bd5c65" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 1(if cheque date is same)</field>
+    <field name="sequence">5</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.3_cheque_batch_if_ch_78a30552-e959-4008-a189-b8e3629cb7e5" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [ref('studio_customization_fields.single_cheque_1_if_c_9bf48aa2-2e81-4db1-a648-82ea53bd5c65'), ref('studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7'), ref('studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89')])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">3-Cheque Batch (if cheque date is same)</field>
+    <field name="sequence">6</field>
+    <field name="state">multi</field>
+  </record>
+  <record id="studio_customization_fields.3rd_reminder_members_13b7a7f8-cc20-4f9a-bc4e-e27a8eb789f2" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">4th Reminder - Membership Finalization Reminder</field>
+    <field name="sequence">5</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_1a8cc650-bbc5-4df8-b492-5072bae1845f" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 7</field>
+    <field name="sequence">11</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_afa38452-0ed6-427a-adf8-ca8f6ff07fb9" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 8</field>
+    <field name="sequence">12</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_b34fbf71-551b-467d-86a5-b6fa8468b63f" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 9</field>
+    <field name="sequence">13</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_3fa48f34-e7f7-4719-b668-f29f9b28fa24" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 10</field>
+    <field name="sequence">14</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_d33c7534-ed9a-4a62-b878-52e547ff5652" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 11</field>
+    <field name="sequence">15</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_86984593-9668-43fa-9988-e2ec56138ea7" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque --&gt; 12</field>
+    <field name="sequence">16</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.6_cheque_batch_653caf3b-5d3e-45b9-9a00-dd8c01842f66" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [ref('studio_customization_fields.single_cheque_1_805bffa6-485d-4850-855b-44018357166c'), ref('studio_customization_fields.single_cheque_4ef99a3d-dd65-4394-b0f9-4331b69f28e7'), ref('studio_customization_fields.single_cheque_c228fdfc-3a12-4c1a-bacf-7ed87a75ec89'), ref('studio_customization_fields.single_cheque_5f8c1e6c-d7f5-4c0c-97d1-09d35fcbe158'), ref('studio_customization_fields.single_cheque_d1c78a87-c9e1-4a54-b139-43e659da0f96'), ref('studio_customization_fields.single_cheque_4761f7de-546d-46e5-9007-cf13a88617ce'), ref('studio_customization_fields.single_cheque_1a8cc650-bbc5-4df8-b492-5072bae1845f'), ref('studio_customization_fields.single_cheque_afa38452-0ed6-427a-adf8-ca8f6ff07fb9'), ref('studio_customization_fields.single_cheque_b34fbf71-551b-467d-86a5-b6fa8468b63f'), ref('studio_customization_fields.single_cheque_3fa48f34-e7f7-4719-b668-f29f9b28fa24'), ref('studio_customization_fields.single_cheque_d33c7534-ed9a-4a62-b878-52e547ff5652'), ref('studio_customization_fields.single_cheque_86984593-9668-43fa-9988-e2ec56138ea7'), ref('studio_customization_fields.zero_reference_76a09217-d555-4600-a0ee-b92690f2a145')])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">12-Cheque Batch</field>
+    <field name="sequence">8</field>
+    <field name="state">multi</field>
+  </record>
+  <record id="studio_customization_fields.allow_access_to_app_f8fa7f8d-4737-48fe-b514-daa702783c38" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Allow Access to App</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.bank_transfer_58eb9d8d-1172-4b46-b7cc-7c12c4191c59" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Cash Transfer</field>
+    <field name="sequence">18</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.batch_sequences_4f67feea-0c63-4fb3-b6c9-ac258ed61211" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Batch Sequences</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.check_first_cheque_i_3dcaad47-d0ef-4954-8fbd-2e6912f4ab51" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="account.model_account_payment"/>
+    <field name="name">Check --&gt; First Cheque is today</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.cheque_reference_3047730c-c6ce-45aa-a09f-9b253992aab7" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Cheque Reference</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.downpayment_done_b1a488e9-8026-4fbd-b878-a254dd0d0fee" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Downpayment Done</field>
+    <field name="sequence">21</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.fill_name_b0cab305-135b-4f2e-8a9b-732d2e570036" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Fill name</field>
+    <field name="sequence">9</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_3_59fb5bb6-1c0d-458b-b64e-6047887d13b3" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Number of payments --&gt; 12 payments</field>
+    <field name="sequence">11</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_3_800ff1de-7014-4b31-891b-da164644ab92" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Number of payments --&gt; 6 payments</field>
+    <field name="sequence">10</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.number_of_payments_4c5e1894-52fc-4d3a-a664-a2592de74c83" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Number of payments --&gt; 3 payments</field>
+    <field name="sequence">9</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.referral_accepted_131cc237-aaf7-4439-a3fb-290ba80ca209" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; Referral Accepted</field>
+    <field name="sequence">8</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_has_not_b_4c9ed67d-d3f4-4f7a-be35-0ebc05c79c21" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">KODE Application Response</field>
+    <field name="sequence">6</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_has_not_b_eec1255b-4b18-400f-80de-ded57226e8a7" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; we were unable to reach your referral</field>
+    <field name="sequence">6</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__1980e4ff-e334-4db4-99a9-dce11e7b8ca5" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; has not been identified as an existing KODE member</field>
+    <field name="sequence">6</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__44308bf0-850a-47be-bba8-d7da68486e2c" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; Referral Rejected</field>
+    <field name="sequence">5</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__4cbe98c7-8590-4ac6-a1e5-b3fae91d8bb9" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; Referral to be interviewed</field>
+    <field name="sequence">7</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_referral__a156bf7d-cc3d-47dc-8977-629c7fcc19a9" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; Send Membership Code</field>
+    <field name="sequence">8</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.send_email_we_were_u_7b8fad33-4c7a-49d8-8bf7-56ec053dcb3e" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Send email --&gt; we were unable to receive a confirmed referral</field>
+    <field name="sequence">6</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.ser_a0c3b1c6-a88b-4567-aaf0-245883daf047" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Cheque Reference</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.set_downpayment_done_4f27881a-bf4e-46b7-90fe-4cacc3b5489c" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Set referral accepted date</field>
+    <field name="sequence">10</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.set_downpayment_done_80bdaac3-f991-4999-9f36-f83e5bf2a8c9" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Set downpayment done date</field>
+    <field name="sequence">10</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_5b8e8b6f-7200-4758-93d7-a2c869346bc4" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Bank Transfer</field>
+    <field name="sequence">19</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.single_cheque_cd9bcb48-3f66-4e0d-9b70-7c40448eef87" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" ref="account.model_account_payment"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" ref="studio_customization_fields.new_one2many_batch_c_3666a2a3-c39b-4e44-917d-6c82de459a38"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Single Cheque</field>
+    <field name="sequence">20</field>
+    <field name="state">object_create</field>
+  </record>
+  <record id="studio_customization_fields.stage_new_on_creatio_343b3501-ab53-4bd6-9fd0-ef4439338063" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Stage --&gt; New on creation</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.today_s_date_c3e5b981-cd9a-4ff0-9cfd-69947bff8d5e" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="studio_customization_fields.batch_cheques_883e3afb-f09f-4884-ad2c-dc5042542bfa"/>
+    <field name="name">Today's date</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.update_in_2_weeks_d2e56363-d9eb-4c4e-9caa-8065dc5eb968" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">1st Reminder - Membership Finalization Reminder</field>
+    <field name="sequence">5</field>
+    <field name="state">email</field>
+  </record>
+  <record id="studio_customization_fields.update_national_id_d369c247-ce1f-446c-a6dd-6d114615a9b4" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">Update national ID</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.when_bounced_a38056ca-92bc-429a-9055-8f2aa7b3cd10" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="account.model_account_payment"/>
+    <field name="name">When Collected</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+  <record id="studio_customization_fields.when_bounced_c85e6c89-88d1-49e0-8cc3-81371b2f11d6" model="ir.actions.server" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="child_ids" eval="[(6, 0, [])]"/>
+    <field name="code"><![CDATA[# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - float_compare: Odoo function to compare floats based on specific precisions
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - UserError: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+
+
+]]></field>
+    <field name="crud_model_id" eval="False"/>
+    <field name="help" eval="False"/>
+    <field name="link_field_id" eval="False"/>
+    <field name="model_id" ref="account.model_account_payment"/>
+    <field name="name">When Bounced</field>
+    <field name="sequence">5</field>
+    <field name="state">object_write</field>
+  </record>
+</odoo>

@@ -1,0 +1,1939 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="record_creation_survey.crm_lead_view_form_inherit_information_form" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='team_id']" position="after">
+          <field name="survey_id"/>
+          <field name="is_information_form_stage"/>
+        </xpath>
+        <xpath expr="//header" position="inside">
+          <button name="action_send_information_form" string="Send Membership Finalization Survey" type="object" class="oe_highlight" attrs="{'invisible':[('is_information_form_stage','=', False)]}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">crm.lead.view.form.inherit.information.form</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.default_form_view_fo_067af253-3b1f-4966-a445-864ce8df6c57" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Batch Cheques">
+          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..."/>
+            </h1>
+          </div>
+          <group name="studio_group_b02ef4">
+            <group name="studio_group_b02ef4_left">
+              <field name="x_studio_partner_id"/>
+              <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+              <field name="x_studio_partner_email" widget="email"/>
+            </group>
+            <group name="studio_group_b02ef4_right">
+              <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+            </group>
+          </group>
+          <group>
+            <field name="x_studio_notes" placeholder="Type down your notes here..." nolabel="1"/>
+          </group>
+        </sheet>
+        <div class="oe_chatter" name="oe_chatter">
+          <field name="message_follower_ids"/>
+          <field name="message_ids"/>
+          <field name="activity_ids"/>
+        </div>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Default form view for x_batch_cheques</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.default_graph_view_f_93720aa7-c7da-4b4a-a662-edf44993e9c4" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <graph string="Contact">
+        <field name="name" modifiers="{}"/>
+      </graph>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">res.partner</field>
+    <field name="name">Default graph view for ir.model(79,)</field>
+    <field name="priority">16</field>
+    <field name="type">graph</field>
+  </record>
+  <record id="studio_customization_fields.default_kanban_view__90230d04-e2f4-40c9-8ca3-1831505b5083" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <kanban string="Batch Cheques">
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+              <div class="o_kanban_card_content">
+                <field name="x_name" modifiers="{}"/>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Default kanban view for ir.model(610,)</field>
+    <field name="priority">16</field>
+    <field name="type">kanban</field>
+  </record>
+  <record id="studio_customization_fields.default_list_view_fo_817a346e-bc70-4140-9d8f-681542c5c7f6" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id"/>
+        <field name="x_studio_user_id" widget="many2one_avatar_user"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Default list view for x_batch_cheques</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.default_map_view_for_de859462-f002-4ad2-9385-b768e484cb12" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <map res_partner="x_studio_partner_id">
+        <field name="x_studio_partner_id" string="Partner"/>
+      </map>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Default map view for x_batch_cheques</field>
+    <field name="priority">16</field>
+    <field name="type">map</field>
+  </record>
+  <record id="studio_customization_fields.default_pivot_view_f_3a639f93-8d37-483d-a6fc-d267296b2914" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <pivot string="Payments"/>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">account.payment</field>
+    <field name="name">Default pivot view for ir.model(390,)</field>
+    <field name="priority">16</field>
+    <field name="type">pivot</field>
+  </record>
+  <record id="studio_customization_fields.default_pivot_view_f_6ccc54c8-87c0-4e8e-a211-4386350ce1f5" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <pivot string="Survey User Input Line"/>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">survey.user_input.line</field>
+    <field name="name">Default pivot view for ir.model(628,)</field>
+    <field name="priority">16</field>
+    <field name="type">pivot</field>
+  </record>
+  <record id="studio_customization_fields.default_search_view__1a73205d-5ecc-48af-9063-5c9969bd8ef3" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <field name="x_studio_partner_id" operator="child_of"/>
+        <field name="x_studio_user_id"/>
+        <filter string="My Batch Cheques" name="my_x_batch_cheques" domain="[['x_studio_user_id', '=', uid]]"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_batch_cheques" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        <filter name="groupby_x_partner" string="Partner" context="{'group_by': 'x_studio_partner_id'}" domain="[]"/>
+        <filter name="groupby_x_user" string="Responsible" context="{'group_by': 'x_studio_user_id'}" domain="[]"/>
+      </search>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Default search view for x_batch_cheques</field>
+    <field name="priority">16</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_account__0be280cd-2ea9-48ca-b325-bb60f6177615" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//filter[@name='salesperson']" position="before">
+          <filter name="studio_group_by_7hXl4" string="Partner" context="{'group_by': 'partner_id'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">account.move</field>
+    <field name="name">Odoo Studio: account.invoice.select customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_account__0ec69b8e-63c0-4bd0-94d4-372597d79ae3" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <!--<xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='bank_account']/group[1]/group[1]/field[@name='default_account_id']" position="attributes">-->
+        <!--  <attribute name="attrs">{"invisible": [["type","=",False]], "required": [["type","=","purchase"]]}</attribute>-->
+        <!--  <attribute name="domain">[]</attribute>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='bank_account']/group[1]/group[1]/field[@name='default_account_id'][2]" position="attributes">-->
+        <!--  <attribute name="attrs">{"invisible": ["&amp;",["type","!=","purchase"],["type","=","cash"]], "required": [["type","=","purchase"]]}</attribute>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//field[@name='profit_account_id']" position="attributes">-->
+        <!--  <attribute name="attrs">{"invisible": ["!",["type","in",["cash","bank"]]]}</attribute>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//field[@name='loss_account_id']" position="attributes">-->
+        <!--  <attribute name="attrs">{"invisible": ["!",["type","in",["cash","bank"]]]}</attribute>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='bank_account']/group[1]/group[1]/field[@name='default_account_id'][3]" position="attributes">-->
+        <!--  <attribute name="domain">[]</attribute>-->
+        <!--</xpath>-->
+        <!--<xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='bank_account']/group[1]/group[1]/field[@name='default_account_id'][4]" position="attributes">-->
+        <!--  <attribute name="attrs">{"invisible": [["type","!=","purchase"]], "required": [["type","=","purchase"]]}</attribute>-->
+        <!--</xpath>-->
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="account.view_account_journal_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">account.journal</field>
+    <field name="name">Odoo Studio: account.journal.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_account__3f5ac5c4-51e6-4227-ac92-43dd69586df1" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//search[1]/field[@name='name']" position="after">
+          <field name="ref"/>
+        </xpath>
+        <xpath expr="//field[@name='journal_id']" position="after">
+          <field name="x_studio_cheque_bounced_date"/>
+          <field name="x_studio_date_of_collection"/>
+          <field name="x_studio_due_date"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="account.view_account_payment_search"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">account.payment</field>
+    <field name="name">Odoo Studio: account.payment.search customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_account__edd003a4-8924-438f-b301-0c83354d6bf9" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+          <group name="studio_group_7p7sR">
+            <group name="studio_group_7p7sR_left">
+              <field name="x_studio_description" string="Description"/>
+            </group>
+            <group name="studio_group_7p7sR_right"/>
+          </group>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='name']" position="after">
+          <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='debit']" position="move"/>
+          <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='credit']" position="move"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="account.view_move_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">account.move</field>
+    <field name="name">Odoo Studio: account.move.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_account__ef60dfa0-2488-433a-a97b-e65588bb83f6" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='journal_id']" position="before">
+          <field name="x_studio_payment_method" string="Payment Method"/>
+          <field name="x_studio_cheque_number" string="Cheque Number" attrs="{&quot;invisible&quot;: [[&quot;x_studio_payment_method&quot;,&quot;!=&quot;,&quot;cheque&quot;]]}"/>
+          <field name="x_studio_paymob_order_no" string="Paymob Order No." attrs="{}" widget="many2one_reference"/>
+        </xpath>
+        <xpath expr="//field[@name='journal_id']" position="after">
+          <field name="x_studio_bouncedreturned" string="Bounced/Returned"/>
+          <field name="x_studio_collected" string="Is collected"/>
+          <field name="x_studio_date_of_collection" string="Date of Collection"/>
+          <field name="x_studio_cheque_bounced_date" string="Cheque Bounced Date"/>
+        </xpath>
+        <xpath expr="//field[@name='partner_bank_id']" position="after">
+          <field name="x_studio_is_parent" string="Is Added"/>
+        </xpath>
+        <xpath expr="//field[@name='date']" position="after">
+          <field name="x_studio_collected_amount" string="Collected amount" attrs="{}" invisible="1"/>
+          <field name="x_studio_due_date" string="Due Date"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[not(@name)][1]/field[@name='edi_document_ids']" position="before">
+          <field name="x_studio_batch_cheque_ref" string="Batch cheque ref"/>
+          <field name="x_studio_batch_cheque_date_1" string="Batch cheque date"/>
+          <field name="x_studio_related_batch_cheque" string="Related Batch (Cheque)" attrs="{}" invisible="1"/>
+          <field name="x_studio_batch_cheque_date" string="Batch Cheque Date" attrs="{}" invisible="1"/>
+          <field name="x_studio_description"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[not(@name)][2]/field[@name='qr_code']" position="after">
+          <field name="x_studio_location"/>
+          <field name="x_studio_batch_cheque" string="Batch Cheque"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="account.view_account_payment_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">account.payment</field>
+    <field name="name">Odoo Studio: account.payment.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_crm_lead_5b981322-9b64-4a15-8fa8-2a381d2bcd16" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//search[1]/field[@name='city']" position="replace"/>
+        <xpath expr="//field[@name='country_id']" position="replace"/>
+        <xpath expr="//field[@name='tag_ids']" position="replace">
+          <field name="x_studio_shopify_code_1"/>
+        </xpath>
+        <xpath expr="//field[@name='phone_mobile_search']" position="after">
+          <field name="email_from"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">Odoo Studio: crm.lead.search.opportunity customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_crm_lead_6352df47-4c39-465e-9d37-7a0dd45d6e3e" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]/h1[1]/field[@name='name']" position="attributes">
+          <attribute name="attrs">{"required": [["name","=","asdwdasd"]]}</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='partner_id']" position="before">
+          <field name="x_studio_referrer_1" string="Referrer" attrs="{}"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='partner_id']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='website']" position="after">
+          <field name="x_studio_referrerd" string="ReferrerD" attrs="{}" invisible="1"/>
+          <field name="x_studio_membership_id" string="Referrer Membership ID"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='opportunity_partner']/field[@name='partner_id']" position="after">
+          <field name="x_studio_downpayment_done_date" string="Downpayment Done Date" force_save="True" attrs="{}" readonly="1"/>
+        </xpath>
+        <xpath expr="//group[@name='opportunity_info']" position="attributes">
+          <attribute name="attrs">{"invisible": []}</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="Form Information" name="studio_page_gy6qK">
+            <group name="studio_group_gy6qK">
+              <group name="studio_group_gy6qK_left" string="General Information">
+                <field name="x_studio_name_of_development_and_unit_number"/>
+                <field name="x_studio_occupation_company_name"/>
+                <field name="x_studio_date_of_birth"/>
+                <field name="x_studio_national_id_" string="National ID #"/>
+                <field name="x_studio_hap_owner"/>
+              </group>
+              <group name="studio_group_gy6qK_right" string="Lifestyle &amp; Activities">
+                <field name="x_studio_do_you_currently_workout_or_exercise"/>
+                <field name="x_studio_what_do_you_currently_do_for_exercise" string="What do you currently do for exercise?"/>
+                <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies" string="Besides sports, what are your interests and hobbies? "/>
+                <field name="x_studio_how_many_times_do_you_exercise_per_week"/>
+                <field name="x_studio_are_you_currently_a_member_in_any_sports_club"/>
+                <field name="x_studio_if_yes_which_sport_clubs"/>
+                <field name="x_studio_what_makes_you_go_to_the_club_most_often"/>
+                <field name="x_studio_how_often_do_you_go_to_your_preferred_club" string="How often do you go to your preferred club?"/>
+                <field name="x_studio_how_often_do_you_eat_at_the_club" string="How often do you eat at the club?"/>
+                <field name="x_studio_what_services_that_you_would_like_to_see_at_the_club" string="What services that you would like to see at the club?" widget="radio"/>
+              </group>
+            </group>
+            <group name="studio_group_eTFXB">
+              <group name="studio_group_eTFXB_left" string="Education">
+                <field name="x_studio_highest_level_of_education_received"/>
+                <field name="x_studio_name_of_university"/>
+              </group>
+              <group name="studio_group_eTFXB_right" string="Relationships &amp; Family">
+                <field name="x_studio_marital_status"/>
+                <field name="x_studio_name_of_spouse" string="Name of Spouse"/>
+                <field name="x_studio_how_many_children_do_you_have"/>
+              </group>
+            </group>
+          </page>
+          <page string="Send Email" name="studio_page_jTjeM">
+            <group name="studio_group_jTjeM">
+              <group name="studio_group_jTjeM_left" string="Referral Accepted">
+                <field name="x_studio_shopify_code_1" string="Shopify Code" attrs="{&quot;invisible&quot;: []}"/>
+                <field name="x_studio_referral_accepted" string="Referral Accepted" attrs="{&quot;invisible&quot;: [[&quot;x_studio_shopify_code_1&quot;,&quot;=&quot;,False]]}"/>
+                <field name="x_studio_referral_to_be_interviewed" string="Referral to be interviewed"/>
+              </group>
+              <group name="studio_group_jTjeM_right" string="Rejection Emails">
+                <field name="x_studio_email_to_send" string="Email to send" force_save="True" attrs="{&quot;invisible&quot;: [], &quot;required&quot;: [[&quot;stage_id&quot;,&quot;=&quot;,9]]}"/>
+                <field name="x_studio_rejection_reason_1" string="Rejection Reason 1" attrs="{&quot;invisible&quot;: [[&quot;x_studio_email_to_send&quot;,&quot;!=&quot;,&quot;Option to share new referral name/number&quot;]]}"/>
+                <field name="x_studio_rejection_reason_2" string="Rejection Reason 2" attrs="{&quot;invisible&quot;: [&quot;|&quot;,[&quot;x_studio_rejection_reason_1&quot;,&quot;=&quot;,False],[&quot;x_studio_email_to_send&quot;,&quot;!=&quot;,&quot;Option to share new referral name/number&quot;]]}"/>
+                <field name="x_studio_rejection_reason_3" string="Rejection Reason 3" attrs="{&quot;invisible&quot;: [&quot;|&quot;,[&quot;x_studio_rejection_reason_2&quot;,&quot;=&quot;,False],[&quot;x_studio_email_to_send&quot;,&quot;!=&quot;,&quot;Option to share new referral name/number&quot;]]}"/>
+              </group>
+            </group>
+            <group name="studio_group_fgz1p">
+              <group name="studio_group_fgz1p_left"/>
+              <group name="studio_group_fgz1p_right"/>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[8]" position="after">
+          <xpath expr="//field[@name='x_studio_membership_id'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[4]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/div[2]" position="after">
+          <group name="studio_group_J32EB">
+            <group name="studio_group_J32EB_left"/>
+            <group name="studio_group_J32EB_right"/>
+          </group>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]" position="inside">
+          <xpath expr="//field[@name='partner_id'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[1]" position="after">
+          <xpath expr="//field[@name='x_studio_membership_id'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[2]" position="attributes">
+          <attribute name="help">To Copy from form</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[2]" position="after">
+          <field name="x_studio_referrer"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[3]" position="attributes">
+          <attribute name="string">Referrer</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="inside">
+          <xpath expr="//field[@name='x_studio_referrer'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="attributes">
+          <attribute name="placeholder">To fill from the form</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[2]" position="after">
+          <xpath expr="//field[@name='x_studio_referrer'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[3]" position="after">
+          <field name="x_studio_phone_number_of_referrer"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">Phone Number of Referral</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">Phone Number of Referrer</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_relationship_to_referrer"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">Relationship to Referrer</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="after">
+          <xpath expr="//field[@name='x_studio_referrer'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="attrs">{"invisible": [["type","=","lead"]]}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="attrs">{"invisible": []}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[2]/field[3]" position="attributes">
+          <attribute name="attrs">{"invisible": ["&amp;",["x_studio_rejection_reason_1","=",False],["x_studio_email_to_send","!=","Option to share new referral name/number"]]}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[2]/field[4]" position="attributes">
+          <attribute name="attrs">{"invisible": ["&amp;",["x_studio_rejection_reason_2","=",False],["x_studio_email_to_send","!=","Option to share new referral name/number"]]}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[1]" position="after">
+          <field name="x_studio_referrer_name"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[2]" position="attributes">
+          <attribute name="string">Referrer Name</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="after">
+          <field name="x_studio_how_did_you_hear_about_this"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="attributes">
+          <attribute name="string">How did you hear about this?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="after">
+          <field name="x_studio_what_school_nursery_does_your_child_attend"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="attributes">
+          <attribute name="string">What school/ Nursery does your child attend?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="after">
+          <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="attributes">
+          <attribute name="string">Besides sports, what are your interests and hobbies?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="after">
+          <field name="x_studio_name_of_sports_club"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="attributes">
+          <attribute name="string">Name of Sports Club</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="after">
+          <field name="x_studio_how_often_do_you_go_to_your_preferred_club_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[14]" position="attributes">
+          <attribute name="string">How often do you go to your preferred club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[14]" position="after">
+          <field name="x_studio_how_often_do_you_eat_at_the_club_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[15]" position="attributes">
+          <attribute name="string">How often do you eat at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="after">
+          <field name="x_studio_text_field_ctg1R"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[5]" position="attributes">
+          <attribute name="string">Please list the non-related sports services that you would like to see at KODE</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[15]" position="after">
+          <field name="x_studio_non_related_sports_you_would_like_to_see_at_kode"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[16]" position="attributes">
+          <attribute name="string">Non-Related Sports you would like to see at KODE</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[16]" position="after">
+          <field name="x_studio_what_is_missing_from_current_club_experience"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[17]" position="attributes">
+          <attribute name="string">What is Missing from Current club experience</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]" position="after">
+          <group name="studio_group_DC5Dk">
+            <group name="studio_group_DC5Dk_left"/>
+            <group name="studio_group_DC5Dk_right"/>
+          </group>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]" position="inside">
+          <field name="x_studio_char_field_o5mhd"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]" position="inside">
+          <field name="x_studio_how_can_we_make_your_dreams_come_true"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">meet.google.com/xmq-xeao-esc</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">How can we make your dreams come true? Think about what you feel is missing from your current club experience and please share with us your thoughts. Every great accomplishment starts off with a small idea, let’s create one together!</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">How can we make your dreams come true? Think about what you feel is missing from your current club experience and please share with us your thoughts. Every great accomplishment starts off with a small idea, let’s create one together!</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">How can we make your dreams come true? Think about what you feel is missing from your current club experience and please share with us your thoughts.</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">How can we make your dreams come true? Think about what you feel is missing from your current club experience and please share with us your thoughts. Every great accomplishment starts off with a small idea, let’s create one together!</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="string">How can we make your dreams come true?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]/field[1]" position="attributes">
+          <attribute name="placeholder">Think about what you feel is missing from your current club experience and please share with us your thoughts. Every great accomplishment starts off with a small idea, let’s create one together!</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[3]/group[1]" position="attributes">
+          <attribute name="string">Misc.</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+          <page string="New Page" name="studio_page_up3D0">
+            <group name="studio_group_up3D0">
+              <group name="studio_group_up3D0_left"/>
+              <group name="studio_group_up3D0_right"/>
+            </group>
+          </page>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]" position="attributes">
+          <attribute name="string">Contact Form Update</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]" position="inside">
+          <field name="x_studio_dob_contact"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[1]" position="attributes">
+          <attribute name="string">DoB - Contact</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[1]" position="after">
+          <field name="x_studio_mobile_contact"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[2]" position="attributes">
+          <attribute name="string">mobile - contact</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[2]" position="after">
+          <field name="x_studio_mobile_city"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[3]" position="attributes">
+          <attribute name="string">mobile - contact</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[3]" position="attributes">
+          <attribute name="string">mobile - city</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[3]" position="after">
+          <field name="x_studio_occupation_company_name_contact"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">Occupation &amp; Company name - Contact</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_education_contact"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">Education - Contact</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">CANCELLED</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[5]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_relationship_to_referrer_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">Relationship to Referrer</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[6]" position="after">
+          <field name="x_studio_boolean_field_odRLe"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[7]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[9]" position="after">
+          <field name="x_studio_how_did_you_hear_about_us"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="attributes">
+          <attribute name="string">How did you hear about us?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[5]" position="after">
+          <field name="x_studio_area_of_home_address"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[6]" position="attributes">
+          <attribute name="string">Area of Home Address</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[1]/field[2]" position="attributes">
+          <attribute name="string">Name of University/Institution where you received your highest degree from</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="after">
+          <field name="x_studio_highest_level_of_education_received_by_spouse"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="attributes">
+          <attribute name="string">Highest Level of Education Received by Spouse</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="after">
+          <field name="x_studio_char_field_npScq"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="attributes">
+          <attribute name="string">Name of University/Institution where your spouse received your highest degree from</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="attributes">
+          <attribute name="string">Name of University/Institution where you received your highest degree from</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="string">Name of University/Institution where you received your highest degree from</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="placeholder">Spouse</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="after">
+          <field name="x_studio_char_field_8rwMl"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="attributes">
+          <attribute name="string"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="after">
+          <field name="x_studio_occupation"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="attributes">
+          <attribute name="string">Occupation</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="after">
+          <field name="x_studio_company_name"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[5]" position="attributes">
+          <attribute name="string">Company Name</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[6]" position="after">
+          <xpath expr="//field[@name='x_studio_what_school_nursery_does_your_child_attend'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[2]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[7]" position="after">
+          <field name="x_studio_what_do_you_currently_do_for_exercise_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[8]" position="attributes">
+          <attribute name="string">What do you currently do for excersise?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[8]" position="attributes">
+          <attribute name="string">What do you currently do for exercise?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="attributes">
+          <attribute name="string">Non-Related Sports Services you would like to see at KODE</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="after">
+          <field name="x_studio_what_non_club_related_services_want_to_see_at_the_club"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="attributes">
+          <attribute name="string">What non-related club services would you like to see at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[13]" position="attributes">
+          <attribute name="string">What non club related services want to see at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+          <attribute name="attrs">{"invisible": [["type","=","lead"]]}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="string">Name</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[1]" position="before">
+          <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[2]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[1]" position="after">
+          <field name="x_studio_besides_sports_what_are_your_interests_and_hobbies"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[2]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[2]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[9]" position="after">
+          <field name="x_studio_how_did_you_hear_about_this"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="after">
+          <field name="x_studio_char_field_npScq"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="inside">
+          <field name="x_studio_boolean_field_HQlSp"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[6]" position="after">
+          <field widget="many2many_tags" name="x_studio_many2many_field_TjqQy"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[7]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[7]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[5]" position="after">
+          <xpath expr="//field[@name='x_studio_many2many_field_TjqQy'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[6]" position="attributes">
+          <attribute name="string">What do you currently do for exercise?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="after">
+          <field widget="many2many_tags" name="x_studio_many2many_field_47tDv"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="attributes">
+          <attribute name="string">What non-related club services you would like to see at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="attributes">
+          <attribute name="string">What nonrelated club services you would like to see at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="attributes">
+          <attribute name="string">What nonrelated club services you would like to see at the club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[9]" position="after">
+          <xpath expr="//field[@name='x_studio_name_of_sports_club'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]/field[3]" position="after">
+          <field name="x_studio_membership_code"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">Membership Code</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_send_membership_code"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">Send Membership Code</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="attrs">{"invisible": [["x_studio_membership_code","=",False]]}</attribute>
+          <attribute name="invisible"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="inside">
+          <field name="x_studio_allow_access_to_app"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="attributes">
+          <attribute name="string">Allow Access to App</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="attributes">
+          <attribute name="string">null</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="inside">
+          <field name="x_studio_allow_access_to_app_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[1]/group[2]/field[1]" position="attributes">
+          <attribute name="string">Allow Access to App</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="string">Name of Spouse</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_hap_owner_2"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">HAP Owner</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[6]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[6]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[2]" position="after">
+          <field name="x_studio_are_you_currently_a_member_in_any_sports_club_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[3]" position="attributes">
+          <attribute name="string">Are you currently a member in any sports club?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[4]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">HAP Owner?</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[4]" position="after">
+          <field name="x_studio_national_id__1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[5]" position="attributes">
+          <attribute name="string">National ID #</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">NULL</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[4]" position="attributes">
+          <attribute name="string">National ID #</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[5]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="after">
+          <field name="x_studio_national_id__2"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="attributes">
+          <attribute name="string">National ID #</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="after">
+          <xpath expr="//field[@name='x_studio_national_id__2'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="after">
+          <field name="phone_mobile_search"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[5]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/div[2]/field[1]" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/label[2]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="after">
+          <field name="x_studio_stage2"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[5]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[11]" position="after">
+          <field name="x_studio_stage2"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[12]" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[2]" position="after">
+          <field name="x_studio_how_often_do_you_eat_at_the_club_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[3]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[10]" position="after">
+          <field name="x_studio_how_often_do_you_go_to_your_preferred_club_1"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[7]" position="replace"/>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="attributes">
+          <attribute name="string">where your spouse received their highest degree from</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[3]" position="attributes">
+          <attribute name="string">Name of Institution where your spouse received their highest degree</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[4]" position="after">
+          <xpath expr="//field[@name='x_studio_char_field_npScq'][not(ancestor::field)]" position="move"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[5]" position="attributes">
+          <attribute name="string">Spouse's Occupation</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[2]/group[2]/field[6]" position="attributes">
+          <attribute name="string">Spouse's Company Name</attribute>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[7]/field[1]" position="before">
+          <field name="x_studio_referral_accepted_date"/>
+        </xpath>
+        <xpath expr="/form[1]/sheet[1]/group[2]/group[7]/field[1]" position="attributes">
+          <attribute name="string">Referral accepted Date</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">Odoo Studio: crm.lead.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_crm_lead_94805081-1d18-44fc-857a-c27092253981" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='user_id']" position="replace"/>
+        <xpath expr="//field[@name='country_id']" position="replace"/>
+        <xpath expr="//field[@name='city']" position="replace"/>
+        <xpath expr="//field[@name='phone']" position="replace">
+          <field name="mobile"/>
+        </xpath>
+        <xpath expr="//field[@name='create_date']" position="after">
+          <field name="__last_update"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">Odoo Studio: crm.lead.tree.lead customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_crm_lead_9a87cbea-6a30-44da-8f16-a61b6840b54a" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='user_id']" position="replace"/>
+        <xpath expr="//field[@name='phone']" position="replace">
+          <field name="mobile"/>
+        </xpath>
+        <xpath expr="//field[@name='team_id']" position="after">
+          <field name="sale_amount_total"/>
+        </xpath>
+        <xpath expr="//field[@name='activity_ids']" position="after">
+          <field name="x_studio_downpayment_done_date"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">Odoo Studio: crm.lead.tree.opportunity customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+<!--  <record id="studio_customization_fields.odoo_studio_crm_lead_a1a49166-b77d-4bbe-af2f-7d31f7997ae9" model="ir.ui.view" >-->
+<!--    <field name="active" eval="True"/>-->
+<!--    <field name="arch" type="xml">-->
+<!--      <data>-->
+<!--&lt;!&ndash;        <xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[2]/div[5]/div[2]/field[@name='user_id']" position="replace"/>&ndash;&gt;-->
+<!--        <xpath expr="//div[@class='oe_kanban_footer']/div[2]/field[@name='user_id']"-->
+<!--               position="attributes">-->
+<!--          <attribute name="invisible">1</attribute>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//kanban[1]/templates[1]/t[1]/div[1]/div[2]/div[5]/div[1]/field[@name='activity_ids']" position="after">-->
+<!--          <field name="mobile" display="full"/>-->
+<!--        </xpath>-->
+<!--      </data>-->
+<!--    </field>-->
+<!--    <field name="field_parent" eval="False"/>-->
+<!--    <field name="groups_id" eval="[(6, 0, [])]"/>-->
+<!--    <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>-->
+<!--    <field name="key" eval="False"/>-->
+<!--    <field name="mode">extension</field>-->
+<!--    <field name="model">crm.lead</field>-->
+<!--    <field name="name">Odoo Studio: crm.lead.kanban.lead customization</field>-->
+<!--    <field name="priority">99</field>-->
+<!--    <field name="type">kanban</field>-->
+<!--  </record>-->
+  <record id="studio_customization_fields.odoo_studio_crm_lead_ec12c079-e534-4955-930c-eb4d1afd58c8" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='phone_mobile_search']" position="after">
+          <field name="email_from"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">crm.lead</field>
+    <field name="name">Odoo Studio: crm.lead.search.lead customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_default__89a49854-1d45-4aeb-9300-6eb0138489ee" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_user_id']" position="after">
+          <field name="x_studio_selection_field_UG6bP"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization_fields.default_list_view_fo_817a346e-bc70-4140-9d8f-681542c5c7f6"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Odoo Studio: Default list view for x_batch_cheques customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_default__a3456ea9-faca-40f5-add0-383be15bf994" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_studio_notes']" position="replace"/>
+        <xpath expr="//form[1]/header[1]" position="inside">
+          <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_UG6bP"/>
+        </xpath>
+        <xpath expr="//field[@name='x_name']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="force_save">True</attribute>
+          <attribute name="required"/>
+          <attribute name="readonly">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_partner_id']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="domain">[]</attribute>
+          <attribute name="force_save">True</attribute>
+          <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_partner_id']" position="after">
+          <field name="x_studio_membership_code" string="Membership Code"/>
+  <!--          <field name="`x_studio_amount`" string="Amount" force_save="True" attrs="{}" required="1"/>-->
+          <field name="x_currency_id"/>
+        </xpath>
+        <xpath expr="//field[@name='x_studio_user_id']" position="after">
+          <field name="x_studio_many2one_field_FDjEY" attrs="{}" invisible="1"/>
+          <field name="x_studio_cheque_reference" string="Cancelled" attrs="{}" invisible="1"/>
+          <field name="x_studio_next_number_1" string="Cheque Reference" attrs="{&quot;invisible&quot;: []}"/>
+          <field name="x_studio_date_of_cheque_receipt" string="Date of Cheque Receipt"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_b02ef4']" position="after">
+          <group name="studio_group_BxFHa">
+            <group name="studio_group_BxFHa_left">
+              <field name="x_studio_amount_of_cheques_to_create" string="Amount of Cheques to Create" attrs="{&quot;readonly&quot;: []}"/>
+              <field name="x_studio_cheque_3" string="Cheque 3" attrs="{}" required="1" widget="integer" invisible="1"/>
+            </group>
+            <group name="studio_group_BxFHa_right">
+              <field name="x_studio_first_cheque_due_date" string="First Cheque Due Date" help="Odoo will replicate the same deadline for each upcoming cheque. " attrs="{&quot;readonly&quot;: []}" required="1"/>
+              <field name="x_studio_todays_date" string="Today's date" attrs="{}" invisible="1"/>
+            </group>
+          </group>
+          <notebook name="studio_notebook_RpiN7">
+            <page string="Cheques" name="studio_page_RpiN7">
+              <group name="studio_group_RpiN7">
+                <field name="x_studio_cheques" string="Cheques">
+                  <tree edit="false" sample="1">
+                    <header>
+                      <button name="action_post" type="object" string="Confirm"/>
+                    </header>
+                    <field name="x_studio_batch_cheque" attrs="{}" invisible="1"/>
+                    <field name="ref"/>
+                    <field name="x_studio_due_date"/>
+                    <field name="date" attrs="{&quot;readonly&quot;: [[&quot;state&quot;,&quot;not in&quot;,[&quot;draft&quot;]]]}" invisible="1"/>
+                    <field name="name"/>
+                    <field name="journal_id" attrs="{&quot;readonly&quot;: [[&quot;state&quot;,&quot;not in&quot;,[&quot;draft&quot;]]]}" invisible="1"/>
+                    <field name="payment_method_id" attrs="{}" invisible="1"/>
+                    <field name="partner_id" string="Customer"/>
+                    <field name="x_studio_location" string="Location"/>
+                    <field name="x_studio_bouncedreturned"/>
+                    <field name="x_studio_is_parent"/>
+                    <field name="x_studio_description" string="Description" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="amount" sum="Amount"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'posted'"/>
+                    <field name="currency_id" groups="base.group_multi_currency"/>
+                  </tree>
+                </field>
+              </group>
+            </page>
+            <page string="Sale Order" name="studio_page_0ICD1">
+              <group name="studio_group_0ICD1">
+                <field name="x_studio_sale_orders" string="Sale Order" attrs="{}">
+                  <tree string="Sales Orders" multi_edit="1" sample="1">
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="name" string="Number" readonly="1" decoration-bf="1"/>
+                    <field name="date_order" string="Order Date" widget="date" optional="show"/>
+                    <field name="commitment_date" optional="hide"/>
+                    <field name="expected_date" optional="hide"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                    <field name="activity_ids" widget="list_activity" optional="show"/>
+                    <field name="team_id" optional="hide"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show" readonly="1"/>
+                    <field name="amount_untaxed" sum="Total Tax Excluded" widget="monetary" optional="hide"/>
+                    <field name="amount_tax" sum="Tax Total" widget="monetary" optional="hide"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" decoration-bf="1" optional="show"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="invoice_status" decoration-success="invoice_status == 'invoiced'" decoration-info="invoice_status == 'to invoice'" decoration-warning="invoice_status == 'upselling'" widget="badge" optional="show"/>
+                    <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <field name="state" invisible="1"/>
+                  </tree>
+                </field>
+              </group>
+            </page>
+            <page string="Description" name="studio_page_6QiFW">
+              <group name="studio_group_6QiFW">
+                <field name="x_studio_description" string="Description"/>
+              </group>
+            </page>
+          </notebook>
+          <group name="studio_group_gbiFG">
+
+
+    </group>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization_fields.default_form_view_fo_067af253-3b1f-4966-a445-864ce8df6c57"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_batch_cheques</field>
+    <field name="name">Odoo Studio: Default form view for x_batch_cheques customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_email_te_2f0a3939-9e67-428f-a4ca-93aaf3049ec0" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//search[1]/field[@name='name']" position="before">
+          <field name="subject"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="mail.view_email_template_search"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">mail.template</field>
+    <field name="name">Odoo Studio: email.template.search customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_form_vie_a5c88b82-6168-43e0-84aa-3daeaee52793" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='sequence']" position="after">
+          <field name="id"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='questions']/field[@name='question_and_page_ids']/tree[1]/field[@name='title']" position="after">
+          <field name="x_studio_record_question_id" string="Record Question ID"/>
+          <field name="x_studio_triggering_question_id" string="Triggering Question ID"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.survey</field>
+    <field name="name">Odoo Studio: Form view for survey customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_ir_model_14ee6b16-07d1-4f34-9e26-28566dc12ebe" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//search[1]/field[@name='name']" position="after">
+          <field name="field_description"/>
+        </xpath>
+        <xpath expr="//field[@name='relation']" position="after">
+          <field name="modules"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="base.view_model_fields_search"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">ir.model.fields</field>
+    <field name="name">Odoo Studio: ir.model.fields search customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_mail_mai_e7900f86-8b6d-4e23-81c2-b6e5cf5a0397" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='subject']" position="after">
+          <field name="partner_ids"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="mail.view_mail_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">mail.mail</field>
+    <field name="name">Odoo Studio: mail.mail.tree customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_res_part_8cfa4651-c5e3-4b72-9191-fb9360083942" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='user_id']" position="replace"/>
+        <xpath expr="//field[@name='display_name']" position="after">
+          <field name="membership_code"/>
+        </xpath>
+        <xpath expr="//field[@name='email']" position="after">
+          <field name="shopify_code"/>
+        </xpath>
+        <xpath expr="//field[@name='membership_type']" position="after">
+          <field name="x_studio_relationship_to_central_member"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.tree customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_res_part_d2c3777f-7cee-47d9-967a-d2199db0a6be" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='parent_id']" position="replace">
+          <field name="membership_code"/>
+          <field name="shopify_code"/>
+          <field name="x_studio_hap_customer_code"/>
+        </xpath>
+        <xpath expr="//field[@name='email']" position="after">
+          <field name="mobile"/>
+          <field name="x_studio_idpassport_number"/>
+        </xpath>
+
+        <xpath expr="//filter[@name='salesperson']" position="before">
+          <filter name="studio_group_by_75JH3" string="Relationship to Central Member" context="{'group_by': 'x_studio_relationship_to_central_member'}"/>
+          <filter name="studio_group_by_78e70" string="Gender" context="{'group_by': 'x_studio_gender'}"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.select customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="res_partner_inherit_view" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+
+        <xpath expr="//field[@name='vat']" position="after">
+                    <field name="x_studio_occupation_company_name" string="Occupation &amp; Company Name"/>
+          <field name="x_studio_education" string="Education"/>
+
+          <field name="x_studio_idpassport_number" string="ID/Passport Number"/>
+          <field name="x_studio_date_of_birth" string="Date of Birth"/>
+          <field name="x_studio_gender" string="Gender"/>
+          <field name="opportunity_ids" attrs="{}" invisible="1">
+            <tree string="Opportunities" sample="1" multi_edit="1" js_class="crm_iap_lead_mining_request_tree">
+              <field name="date_deadline" invisible="1"/>
+              <field name="create_date" optional="hide"/>
+              <field name="name" string="Opportunity" readonly="1"/>
+              <field name="partner_id" optional="hide"/>
+              <field name="contact_name" optional="show"/>
+              <field name="email_from"/>
+              <field name="phone" class="o_force_ltr"/>
+              <field name="company_id" groups="base.group_multi_company" optional="show"/>
+              <field name="city" optional="hide"/>
+              <field name="state_id" optional="hide"/>
+              <field name="country_id" optional="hide"/>
+              <field name="user_id" widget="many2one_avatar_user" optional="show" domain="[('share', '=', False)]"/>
+              <field name="team_id" optional="show"/>
+              <field name="priority" optional="hide"/>
+              <field name="activity_ids" widget="list_activity"/>
+              <field name="activity_user_id" optional="hide" string="Activity by" widget="many2one_avatar_user"/>
+<!--              <field name="activity_date_deadline_my" string="My Deadline" widget="remaining_days" options="{'allow_order': '1'}"/>-->
+              <field name="campaign_id" optional="hide"/>
+              <field name="medium_id" optional="hide"/>
+              <field name="source_id" optional="hide"/>
+              <field name="company_currency" invisible="1"/>
+              <field name="expected_revenue" sum="Expected Revenues" optional="show" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+              <field name="x_studio_stage2" string="Stage2" attrs="{}" invisible="1"/>
+              <field name="recurring_revenue_monthly" sum="Expected MRR" optional="show" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+              <field name="recurring_revenue" sum="Recurring Revenue" optional="hide" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+              <field name="recurring_plan" optional="hide"/>
+              <field name="stage_id" optional="show" decoration-bf="1"/>
+              <field name="active" invisible="1"/>
+              <field name="probability" optional="hide"/>
+              <field name="tag_ids" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+              <field name="referred" invisible="1"/>
+              <field name="message_needaction" invisible="1"/>
+            </tree>
+          </field>
+          <field name="x_studio_stage_3" string="Stage"/>
+        </xpath>
+        <xpath expr="//field[@name='membership_type']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="required"/>
+        </xpath>
+        <xpath expr="//field[@name='central_partner_id']" position="after">
+          <field name="x_studio_relationship_to_central_member" string="Relationship to Central Member" attrs="{&quot;invisible&quot;: [[&quot;central_partner_id&quot;,&quot;=&quot;,False]]}"/>
+        </xpath>
+        <xpath expr="//field[@name='membership_code']" position="attributes">
+          <attribute name="attrs">{}</attribute>
+          <attribute name="force_save">True</attribute>
+          <attribute name="readonly"/>
+        </xpath>
+        <xpath expr="//field[@name='membership_code']" position="after">
+          <field name="x_studio_hap_customer_code" string="HAP Customer Code"/>
+        </xpath>
+        <xpath expr="//field[@name='membership_status']" position="attributes">
+          <attribute name="string">Subscription Status</attribute>
+        </xpath>
+        <xpath expr="//field[@name='membership_status']" position="after">
+          <field name="x_studio_referrer" string="Referrer"/>
+          <field name="x_studio_university" string="University"/>
+        </xpath>
+        <xpath expr="//field[@name='website']" position="after">
+          <xpath expr="//field[@name='category_id']" position="move"/>
+          <field name="x_studio_allow_access_to_app" string="Allow Access to App"/>
+          <field name="x_studio_separated_member" string="Separated Member?"/>
+          <field name="x_studio_importing_reference" string="Importing/Exporting Reference" attrs="{}" invisible="1"/>
+          <field name="x_studio_separated_from" attrs="{&quot;invisible&quot;: [[&quot;x_studio_separated_member&quot;,&quot;!=&quot;,True]]}" string="Separated From"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+          <group name="studio_group_gDDXP">
+
+    </group>
+        </xpath>
+        <xpath expr="//page[@name='contact_addresses']" position="attributes">
+          <attribute name="string">Referred members</attribute>
+        </xpath>
+        <xpath expr="//field[@name='child_ids']" position="after">
+          <group name="studio_group_ZOYA5">
+            <field name="x_studio_referred_members" string="Referred Members"/>
+          </group>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.form customization</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_sale_ord_367f3e64-a489-4078-8fa7-a93f23fe9a34" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='sequence']" position="after">
+          <field name="order_id" attrs="{}" invisible="1"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">sale.order</field>
+    <field name="name">Odoo Studio: sale.order.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_sale_ord_d4da4871-a160-4025-9bb3-503f287333da" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='activity_ids']" position="replace">
+          <field name="pricelist_id"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="sale.view_quotation_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">sale.order</field>
+    <field name="name">Odoo Studio: sale.order.tree customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <t t-name="studio_report_document">
+        <t t-call="web.internal_layout">
+          <div class="page"/>
+        </t>
+      </t>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key">studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797_document</field>
+    <field name="mode">primary</field>
+    <field name="model" eval="False"/>
+    <field name="name">studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797_document</field>
+    <field name="priority">16</field>
+    <field name="type">qweb</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_studio_c_cda1f5f3-c57f-4969-bb35-02e6cb2a82c0" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/t/t/div" position="inside">
+          <table class="table o_report_block_table">
+            <thead>
+              <tr>
+                <th>
+                  <span>Name</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr t-foreach="doc.x_studio_cheques" t-as="table_line">
+                <td>
+                  <span t-field="table_line.display_name"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th" position="before">
+          <th>
+            <span>Cheque Due Date</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td" position="before">
+          <td>
+            <span t-field="table_line.x_studio_due_date"/>
+          </td>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[1]" position="after">
+          <th>
+            <span>Reference</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[1]" position="after">
+          <td>
+            <span t-field="table_line.ref"/>
+          </td>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/thead[1]/tr[1]/th[3]" position="replace"/>
+        <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]" position="replace"/>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]/span" position="replace">
+          <span>Cheque Number</span>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[2]" position="after">
+          <th>
+            <span>Amount</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[2]" position="after">
+          <td>
+            <span t-field="table_line.amount"/>
+          </td>
+        </xpath>
+        <xpath expr="/t/t/div/table" position="before">
+          <div class="row address">
+            <div class="col-5">
+              <div t-field="doc.x_studio_partner_id" t-options-widget="'contact'"/>
+            </div>
+            <div class="col-5 offset-2"/>
+          </div>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[1]/div[1]/div[1]" position="attributes">
+          <attribute name="t-options-fields">['name', 'address', 'phone', 'mobile']</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[1]/div[1]/div[1]" position="attributes">
+          <attribute name="t-options-fields">['name', 'phone', 'mobile']</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div/div[2]" position="inside">
+          <span t-field="doc.x_studio_partner_id.membership_code"/>
+        </xpath>
+        <xpath expr="/t/t/div/div" position="before">
+          <div class="row">
+            <div class="col-3">
+              <span>
+                <strong>Date of Cheque Receipt:</strong>
+                <br/>
+              </span>
+              <span t-field="doc.x_studio_date_of_cheque_receipt"/>
+            </div>
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3"/>
+          </div>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[2]" position="replace"/>
+        <xpath expr="/t/t/div/div[2]" position="after">
+          <div class="row">
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3">
+              <span>
+                <strong>Membership Code:</strong>
+                <br/>
+              </span>
+              <span t-field="doc.x_studio_partner_id.membership_code"/>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[3]" position="after">
+          <th>
+            <span>Description</span>
+          </th>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/tr/td[3]" position="after">
+          <td>
+            <span t-field="table_line.x_studio_description"/>
+          </td>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/div[1]" position="attributes">
+          <attribute name="t-options-fields">['name', 'phone']</attribute>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/div[1]" position="attributes">
+          <attribute name="t-options-fields">['name']</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div[1]" position="before">
+          <div class="row">
+            <div class="col-3">
+              <span>
+                <strong>Name:</strong>
+                <br/>
+              </span>
+              <span t-field="doc.x_name"/>
+            </div>
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3"/>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[1]/div[1]/span[1]" position="replace">
+          <span>
+            <strong>Receipt No.</strong>
+            <br/>
+          </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[1]/div[1]/span[1]" position="replace">
+          <span>
+            <strong>Receipt No.</strong>
+            <br/>
+          </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[4]/div[1]" position="inside">
+          <span>
+            <strong>Contact:</strong>
+            <br/>
+          </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[4]/div[1]" position="inside">
+          <span t-field="doc.x_studio_partner_id"/>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[3]/div[1]" position="replace"/>
+        <xpath expr="/t/t/div/table" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[5]" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[6]/div/span" position="replace">
+          <span>Signature:</span>
+        </xpath>
+        <xpath expr="/t/t/div/div[6]" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[7]" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[8]" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[9]/div/span" position="replace">
+          <span>____________________________________ </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[5]/div/span" position="replace">
+          <span/>
+        </xpath>
+        <xpath expr="/t/t/div/div[7]/div/span" position="replace">
+          <span> </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[8]/div/span" position="replace">
+          <span/>
+        </xpath>
+        <xpath expr="/t/t/div/div[5]" position="after">
+          <div class="row">
+            <div class="col">
+              <span>New Text Block</span>
+            </div>
+          </div>
+        </xpath>
+        <xpath expr="/t/t/div/div[6]/div/span" position="replace">
+          <span> </span>
+        </xpath>
+        <xpath expr="/t/t/div/div[4]" position="after">
+          <div class="row">
+            <div class="col-3">
+              <span>
+                <strong>Description:</strong>
+                <br/>
+              </span>
+              <span t-field="doc.x_studio_description"/>
+            </div>
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3"/>
+          </div>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797"/>
+    <field name="key">gen_key.6ca3e4</field>
+    <field name="mode">extension</field>
+    <field name="model" eval="False"/>
+    <field name="name">Odoo Studio: studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797_document customization</field>
+    <field name="priority">99</field>
+    <field name="type">qweb</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_survey_q_566d7948-7920-4428-8f02-3c94f53e9edb" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//tree[1]" position="attributes">
+          <attribute name="create">true</attribute>
+          <attribute name="multi_edit">true</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_question_answer_view_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.question.answer</field>
+    <field name="name">Odoo Studio: survey.question.answer.view.tree customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_survey_u_332dbb22-8edf-4ffc-92de-5b5798bc3adc" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='survey_id']" position="after">
+          <field name="x_studio_partner"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_user_input_line_view_search"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.user_input.line</field>
+    <field name="name">Odoo Studio: survey.user_input.line.view.search customization</field>
+    <field name="priority">99</field>
+    <field name="type">search</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_survey_u_63916dfa-9978-4304-8bd9-315d7293d59c" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='survey_id']" position="before">
+          <field name="x_studio_partner"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_response_line_view_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.user_input.line</field>
+    <field name="name">Odoo Studio: survey.user_input.line.view.tree customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_survey_u_cef4d11b-05fc-45b3-a9f2-d5003ef8d6ab" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='question_sequence']" position="after">
+          <field name="create_uid" attrs="{}" invisible="1"/>
+          <field name="x_studio_partner" string="Partner"/>
+          <field name="user_input_id" attrs="{}" invisible="1"/>
+          <field name="survey_id"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.user_input</field>
+    <field name="name">Odoo Studio: survey.user_input.view.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization_fields.odoo_studio_tree_vie_3db497b8-cac2-4214-a7af-5be9a813dd74" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//tree[1]" position="attributes">
+          <attribute name="create">true</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_question_tree"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.question</field>
+    <field name="name">Odoo Studio: Tree view for survey question customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization_fields.studio_main_report_4b04f1cd-0415-46dd-8910-6d2629ad4312" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <t t-name="studio_main_report">
+        <t t-call="web.html_container">
+          <t t-foreach="docs" t-as="doc">
+            <t t-call="studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797_document"/>
+          </t>
+        </t>
+      </t>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key">studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797</field>
+    <field name="mode">primary</field>
+    <field name="model" eval="False"/>
+    <field name="name">studio_customization_fields.studio_report_docume_926b278b-92fd-47c3-b2b6-bfffe993e797</field>
+    <field name="priority">16</field>
+    <field name="type">qweb</field>
+  </record>
+  <record id="web.external_layout_standard" model="ir.ui.view" >
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <t t-name="web.external_layout_standard">
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+          <div class="row">
+            <div class="col-3 mb4">
+              <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+            </div>
+            <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+          </div>
+          <div t-if="company.logo or company.report_header" class="row zero_min_height">
+            <div class="col-12">
+              <div style="border-bottom: 1px solid black;"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6" name="company_address">
+              <div t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+            </div>
+          </div>
+        </div>
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+          <div class="pt-5">
+            <!-- This div ensures that the address is not cropped by the header. -->
+            <t t-call="web.address_layout"/>
+          </div>
+          <t t-raw="0"/>
+        </div>
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+          <div class="text-center" style="border-top: 1px solid black;">
+            <ul class="list-inline mb4">
+              <!-- using the list-inline-item class from bootstrap causes weird behaviours in pdf report
+                         adding d-inline class fixes the problem-->
+              <li t-if="company.phone" class="list-inline-item d-inline">
+                <span class="o_force_ltr" t-field="company.phone"/>
+              </li>
+              <li t-if="company.email" class="list-inline-item d-inline">
+                <span t-field="company.email"/>
+              </li>
+              <li t-if="company.website" class="list-inline-item d-inline">
+                <span t-field="company.website"/>
+              </li>
+              <!--<li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>-->
+            </ul>
+            <div name="financial_infos">
+              <span t-field="company.report_footer"/>
+            </div>
+            <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+          </div>
+        </div>
+      </t>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key">web.external_layout_standard</field>
+    <field name="mode">primary</field>
+    <field name="model" eval="False"/>
+    <field name="name">external_layout_standard</field>
+    <field name="priority">16</field>
+    <field name="type">qweb</field>
+  </record>
+
+</odoo>

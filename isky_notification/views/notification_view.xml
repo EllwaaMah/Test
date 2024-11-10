@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="system_notification_form" model="ir.ui.view">
+            <field name="name">system.notification.form.view</field>
+            <field name="model">system.notification</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Run Notification"
+                                name="run_notification"
+                                states="draft"
+                                type="object"
+                                class="oe_highlight"/>
+                        <button string="Cancel Notification"
+                                name="cancel_notification"
+                                states="running"
+                                type="object"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name"/>
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="shifting_days" required="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Notification Lines">
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="model_id"
+                                               required="1"
+                                               options="{'no_create': True}"/>
+                                        <field name="field_id"
+                                               required="1"
+                                               options="{'no_create': True}"
+                                               domain="[('model_id','=',model_id),('ttype', 'in',['date', 'datetime'])]"/>
+                                        <field name="notification_type"
+                                               required="1"/>
+                                        <field name="notification_user_ids"
+                                               widget="many2many_tags"
+                                               options="{'no_create': True}"
+                                               attrs="{'invisible':[('notification_type' , '!=', 'user')],'required':[('notification_type' , '=', 'user')]}"/>
+                                        <field name="notification_group_ids"
+                                               widget="many2many_tags"
+                                               options="{'no_create': True}"
+                                               attrs="{'invisible':[('notification_type' , '!=', 'group')],'required':[('notification_type' , '=', 'group')]}"/>
+                                        <field name="receipt_ids"
+                                               widget="many2many_tags"
+                                               options="{'no_create': True}"
+                                               attrs="{'invisible':[('notification_type' , '!=', 'other')],'required':[('notification_type' , '=', 'other')]}"
+                                               domain="[('model_id','=',model_id),('ttype', '=','many2one'),('relation', 'in', ['res.users', 'res.partner', 'hr.employee'])]"
+                                        />
+                                        <field name="notification_id" invisible="1"/>
+                                    </tree>
+                                    <form>
+                                        <group col="4">
+                                            <field name="model_id"
+                                                   required="1"
+                                                   options="{'no_create': True}"/>
+                                            <field name="field_id"
+                                                   required="1"
+                                                   options="{'no_create': True}"/>
+                                            <field name="notification_type" required="1"/>
+                                            <field name="notification_user_ids"
+                                                   widget="many2many_tags"
+                                                   attrs="{'invisible':[('notification_type' , '!=', 'user')],'required':[('notification_type' , '=', 'user')]}"/>
+                                            <field name="notification_group_ids"
+                                                   widget="many2many_tags"
+                                                   attrs="{'invisible':[('notification_type' , '!=', 'group')],'required':[('notification_type' , '=', 'group')]}"/>
+                                            <field name="notification_id" invisible="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="system_notification_tree" model="ir.ui.view">
+            <field name="name">system.notification.tree.view</field>
+            <field name="model">system.notification</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="shifting_days"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="system_notification_action" model="ir.actions.act_window">
+            <field name="name">Notification</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">system.notification</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Expiry Date Notification"
+                  id="system_notification_action_menu"
+                  action="system_notification_action"
+                  parent="base.menu_email"/>
+    </data>
+</odoo>

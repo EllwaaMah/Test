@@ -1,0 +1,83 @@
+<odoo>
+    <record id="sr_view_pdc_payment_wizard_view" model="ir.ui.view">
+        <field name="name">pdc.payment.wizard.view</field>
+        <field name="model">pdc.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="PDC Payment">
+                <sheet>
+                    <group>
+                        <field name="invoice_ids" invisible="1"/>
+                        <group>
+                            <field name="partner_id" readonly="1"/>
+                            <label for="residual_amount"/>
+                            <div name="amount_div" class="o_row">
+                                <field name="residual_amount"/>
+                                <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                                       groups="base.group_multi_currency" readonly="1"/>
+                            </div>
+                            <field name="move_type" invisible="True"/>
+                            <field name="journal_id" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="communication"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="batch_pdc"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="amount"
+                                   attrs="{'invisible': [('batch_pdc', '=', False)], 'required': [('batch_pdc', '!=', False)]}"/>
+                            <field name="cheques_no"
+                                   attrs="{'invisible': [('batch_pdc', '=', False)], 'required': [('batch_pdc', '!=', False)]}"/>
+                            <field name="no_of_months"
+                                   attrs="{'invisible': [('batch_pdc', '=', False)], 'required': [('batch_pdc', '!=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="first_cheque_date"
+                                   attrs="{'invisible': [('batch_pdc', '=', False)], 'required': [('batch_pdc', '!=', False)]}"/>
+                            <field name="first_cheque_ref"
+                                   attrs="{'invisible': [('batch_pdc', '=', False)], 'required': [('batch_pdc', '!=', False)]}"/>
+                        </group>
+                    </group>
+                    <button string='Create PDC Cheques' name="create_pdc_cheques" type="object" class="btn-primary"/>
+                    <notebook>
+                        <page name="lines" string="lines">
+                            <field name="line_ids"
+                                   context="{'default_journal_id': journal_id,'default_communication':communication }">
+                                <tree editable="bottom">
+                                    <field name="amount"/>
+                                    <field name="journal_id"/>
+                                    <field name="payment_date"/>
+                                    <field name="due_date"/>
+                                    <field name="cheque_ref"/>
+                                    <field name="agent"/>
+                                    <field name="bank"/>
+                                    <field name="name" invisible="1"/>
+                                    <field name="communication"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <footer>
+                    <button string='Register PDC Cheques' name="register" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="pdc_payment_wizard_action" model="ir.actions.act_window">
+        <field name="name">Pdc Payment Wizard</field>
+        <field name="res_model">pdc.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

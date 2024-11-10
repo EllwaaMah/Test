@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="send_survey_applicant_form" model="ir.ui.view">
+            <field name="name">send.survey.applicant.form</field>
+            <field name="model">send.survey.applicant</field>
+            <field name="arch" type="xml">
+                <form name="Payment Detail">
+                    <group>
+                        <group>
+                            <field name="applicant_id" invisible="1"/>
+                            <field name="survey_id" domain="[('id','in',survey_ids)]" options="{'no_create':True}"/>
+                            <field name="survey_ids" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_send_information_form_applicant" string="Send" type="object" class="btn-primary" icon="fa-check"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="send_survey_applicant_action" model="ir.actions.act_window">
+            <field name="name">Send Survey</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">send.survey.applicant</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="send_survey_applicant_form"/>
+            <field name="context">
+            {'default_applicant_id': active_id}
+            </field>
+            <field name="target">new</field>
+
+        </record>
+    </data>
+</odoo>

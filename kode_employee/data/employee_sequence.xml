@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+          <record model="ir.cron" id="employee_data_reminder">
+            <field name="name">HR Employee Contract Expiration</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="hr_contract.model_hr_contract"/>
+            <field name="state">code</field>
+            <field name="code">model.mail_reminder()</field>
+        </record>
+
+        <record id="seq_internal_employee" model="ir.sequence">
+            <field name="name">Internal Employee</field>
+            <field name="code">internal.employee</field>
+            <field name="prefix">K-</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="seq_external_employee" model="ir.sequence">
+            <field name="name">External Employee</field>
+            <field name="code">external.employee</field>
+            <field name="prefix">O-</field>
+            <field name="padding">5</field>
+        </record>
+
+
+
+    </data>
+</odoo>

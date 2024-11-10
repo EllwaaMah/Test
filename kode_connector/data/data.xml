@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="kode.connector" id="production_kode_connector">
+        <field name="name">Kode 34ml</field>
+        <field name="is_testing">True</field>
+        <field name="test_url">https://kode-staging-lambda.34ml.com/webhook</field>
+        <field name="production_url">https://kode.34ml.com/webhook</field>
+        <field name="access_token">d9a13645ebf23ebbc274f0f037ab8da80327d8335772956387e87f7d782855f4</field>
+    </record>
+</odoo>

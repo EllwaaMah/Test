@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="account.menu_finance_configuration" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence">6</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.account_account_menu" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
+    <field name="name">Accounting</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.account_banks_menu" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
+    <field name="name">Banks</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence">2</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.account_invoicing_menu" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_readonly'), ref('account.group_account_invoice')])]"/>
+    <field name="name">Invoicing</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.account_management_menu" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
+    <field name="name">Management</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence">6</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_account_config" model="ir.ui.menu" >
+    <field name="action" ref="account.action_account_config"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+    <field name="name">Settings</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_finance_receivables" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Customers</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_account_customer" model="ir.ui.menu" >
+    <field name="action" ref="account.res_partner_action_customer"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Customers</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">6</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_action_account_payments_receivable" model="ir.ui.menu" >
+    <field name="action" ref="account.action_account_payments"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Payments</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">2</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_action_move_out_invoice_type" model="ir.ui.menu" >
+    <field name="action" ref="account.action_move_out_invoice_type"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Invoices</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_action_move_out_refund_type" model="ir.ui.menu" >
+    <field name="action" ref="account.action_move_out_refund_type"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Credit Notes</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_board_journal_1" model="ir.ui.menu" >
+    <field name="action" ref="account.open_account_journal_dashboard_kanban"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_readonly')])]"/>
+    <field name="name">Dashboard</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_finance_entries" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_readonly')])]"/>
+    <field name="name">Accounting</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_finance_payables" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Vendors</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence">2</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.menu_finance_reports" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_readonly'), ref('account.group_account_invoice')])]"/>
+    <field name="name">Reporting</field>
+    <field name="parent_id" ref="account_accountant.menu_accounting"/>
+    <field name="sequence">4</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.product_product_menu_sellable" model="ir.ui.menu" >
+    <field name="action" ref="account.product_product_action_sellable"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Products</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">5</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account.root_payment_menu" model="ir.ui.menu" >
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
+    <field name="name">Payments</field>
+    <field name="parent_id" ref="account.menu_finance_configuration"/>
+    <field name="sequence">4</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="account_followup.customer_statements_menu" model="ir.ui.menu" >
+    <field name="action" ref="account_followup.action_view_list_customer_statements"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_invoice')])]"/>
+    <field name="name">Follow-up Reports</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">4</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="crm.menu_crm_lead_categ" model="ir.ui.menu" >
+    <field name="action" ref="sales_team.sales_team_crm_tag_action"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Tags</field>
+    <field name="parent_id" ref="crm.menu_crm_config_lead"/>
+    <field name="sequence">1</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="crm.menu_crm_lead_stage_act" model="ir.ui.menu" >
+    <field name="action" ref="crm.crm_stage_action"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+    <field name="name">Stages</field>
+    <field name="parent_id" ref="crm.menu_crm_config_lead"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="crm.menu_crm_lost_reason" model="ir.ui.menu" >
+    <field name="action" ref="crm.crm_lost_reason_action"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Lost Reasons</field>
+    <field name="parent_id" ref="crm.menu_crm_config_lead"/>
+    <field name="sequence">2</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="payment.payment_acquirer_menu" model="ir.ui.menu" >
+    <field name="action" ref="payment.action_payment_acquirer"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Payment Acquirers</field>
+    <field name="parent_id" ref="account.root_payment_menu"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="payment.payment_icon_menu" model="ir.ui.menu" >
+    <field name="action" ref="payment.action_payment_icon"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+    <field name="name">Payment Icons</field>
+    <field name="parent_id" ref="account.root_payment_menu"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+
+  <record id="payment.payment_transaction_menu" model="ir.ui.menu" >
+    <field name="action" ref="payment.action_payment_transaction"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+    <field name="name">Payment Transactions</field>
+    <field name="parent_id" ref="account.root_payment_menu"/>
+    <field name="sequence">4</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.accounting_batch_che_24c72b7e-91a8-4a80-8d3a-cf0b263f8345" model="ir.ui.menu" >
+    <field name="action" ref="studio_customization_fields.batch_cheques_f4048de8-a410-46ab-a4f6-b2a34d5dfbeb"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Batch Cheques</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.crm_stages_06bc46ad-609b-4b95-a87a-3ea7dae24213" model="ir.ui.menu" >
+    <field name="action" ref="studio_customization_fields.stages_c1aaeddb-b3be-42b0-aa5a-cfba83b2a4a9"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Stages</field>
+    <field name="parent_id" ref="crm.menu_crm_config_lead"/>
+    <field name="sequence">3</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.crm_tag_9fc37313-28a2-4088-92e6-575d36040527" model="ir.ui.menu" >
+    <field name="action" ref="studio_customization_fields.tag_84445914-896a-4671-b5d7-04474c33909f"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Tag</field>
+    <field name="parent_id" ref="crm.crm_menu_root"/>
+    <field name="sequence">26</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization_fields.surveys_answers_9b39138d-76ca-4ee7-8075-e57547eb407d" model="ir.ui.menu" >
+    <field name="action" ref="studio_customization_fields.answers_2ca51052-2dac-4327-9e5d-a017bae185be"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Answers</field>
+    <field name="parent_id" ref="survey.menu_surveys"/>
+    <field name="sequence">91</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+</odoo>

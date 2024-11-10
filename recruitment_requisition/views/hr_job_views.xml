@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_job_view_form_inherit">
+        <field name="name">hr.job.view.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[1]" position="after">
+                <page string="Job Requirements">
+                    <field name="requirements" options="{'collaborative': true}"/>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name='set_recruit']" position="replace">
+                <field name="ready_to_start" invisible="1"/>
+                <button name="set_recruit" string="Start Recruitment" type="object" class="oe_highlight"
+                        attrs="{'invisible': ['|', ('state', '!=', 'open'),('ready_to_start', '=', False)]}"
+                        groups="base.group_user"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_applicant_view_form_inherit">
+        <field name="name">hr.applicant.view.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_id']" position="after">
+                <field name="requisition_id" invisible="1" options="{'no_create': True, 'no_create_edit':True}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

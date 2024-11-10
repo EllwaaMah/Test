@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- #######################| Start Contract View Report |####################### -->
+        <!-- Start Contract View Report Form -->
+        <record id="contract_view_report_form" model="ir.actions.report">
+            <field name="name">Contract Report</field>
+            <field name="model">contract.view</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_contract_view"/>
+            <field name="report_name">empty_module.contract_view_report_template</field>
+            <field name="report_file">empty_module.contract_view_report_template</field>
+        </record>
+        <!-- End Contract View Report Form -->
+<!-- #######################| End Contract View Report |####################### -->
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- ####################| Start Contract Menu |#################### -->
+    <!-- Start Contract View Menu Actions -->
+    <record id="contract_view_menu" model="ir.actions.act_window">
+        <field name="name">Contract</field>
+        <field name="res_model">contract.view</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="contract_root"
+              name="Empty Module"
+              web_icon="empty_module,static/description/icon.png"/>
+    <menuitem id="contract_parent"
+              name="Contract"
+              sequence="1"
+              parent="contract_root"/>
+    <menuitem id="contract_view"
+              name="Contract"
+              sequence="1"
+              parent="contract_parent"
+              action="contract_view_menu"/>
+    <!-- End Contract View Menu Actions -->
+<!-- ####################| End Contract Menu |#################### -->
+</odoo>

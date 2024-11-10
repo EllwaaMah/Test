@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- Start Package View Sequence -->
+    <record id="package_sequence_view" model="ir.sequence">
+        <field name="name">Package Sequence</field>
+        <field name="code">package_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Package / </field>
+    </record>
+<!-- End Package View Sequence -->
+
+<!-- Start Tour View Sequence -->
+    <record id="tour_sequence_view" model="ir.sequence">
+        <field name="name">Tour Sequence</field>
+        <field name="code">tour_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Tour / </field>
+    </record>
+<!-- End Tour View Sequence -->
+
+<!-- Start Customer View Sequence -->
+    <record id="customer_sequence_view" model="ir.sequence">
+        <field name="name">Customer Sequence</field>
+        <field name="code">customer_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Customer / </field>
+    </record>
+<!-- End Customer View Sequence -->
+
+<!-- Start Hotel View Sequence -->
+    <record id="hotel_sequence_view" model="ir.sequence">
+        <field name="name">Hotel Sequence</field>
+        <field name="code">hotel_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Hotel / </field>
+    </record>
+<!-- End Hotel View Sequence -->
+
+<!-- Start Rooms View Sequence -->
+    <record id="rooms_sequence_view" model="ir.sequence">
+        <field name="name">Rooms Sequence</field>
+        <field name="code">rooms_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Room / </field>
+    </record>
+<!-- End Rooms View Sequence -->
+
+<!-- Start Meals view Sequence -->
+    <record id="meals_sequence_view" model="ir.sequence">
+        <field name="name">Meals Sequence</field>
+        <field name="code">meals_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Meal / </field>
+    </record>
+<!-- End Meals View Sequence -->
+
+<!-- Start Transportation View Sequence -->
+    <record id="transportation_sequence_view" model="ir.sequence">
+        <field name="name">Transportation Sequence</field>
+        <field name="code">transportation_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Trans / </field>
+    </record>
+<!-- End Transportation View Sequence -->
+
+<!-- Start Vehicles View Sequence -->
+    <record id="vehicles_sequence_view" model="ir.sequence">
+        <field name="name">Vehicles Sequence</field>
+        <field name="code">vehicles_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Vehicle / </field>
+    </record>
+<!-- End Vehicles View Sequence -->
+
+<!-- Start Tickets View Sequence -->
+    <record id="tickets_sequence_view" model="ir.sequence">
+        <field name="name">Tickets Sequence</field>
+        <field name="code">tickets_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Ticket / </field>
+    </record>
+<!-- End Tickets View Sequence -->
+
+<!-- Start Guide View Sequence -->
+    <record id="guide_sequence_view" model="ir.sequence">
+        <field name="name">Guide Sequence</field>
+        <field name="code">guide_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Guide / </field>
+    </record>
+<!-- End Guide View Sequence -->
+
+<!-- Start Contract View Sequence -->
+    <record id="contract_sequence_view" model="ir.sequence">
+        <field name="name">Contract Sequence</field>
+        <field name="code">contract_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Contract / </field>
+    </record>
+<!-- End Contract View Sequence -->
+
+<!-- Start Services View Sequence -->
+    <record id="services_sequence_view" model="ir.sequence">
+        <field name="name">Services Sequence</field>
+        <field name="code">services_view_sequence</field>
+        <field name="padding">6</field>
+        <field name="prefix">Service / </field>
+    </record>
+<!-- End Services View Sequence -->
+</odoo>

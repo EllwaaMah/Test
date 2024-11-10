@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!-- #######################| Start Form View |####################### -->
+    <record id="contract_view_form" model="ir.ui.view">
+        <field name="name">Contract</field>
+        <field name="model">contract.view</field>
+        <field name="arch" type="xml">
+            <form>
+            <!-- Start Statusbar Section -->
+                <header>
+                    <button name="button_draft" string="Set To Draft" type="object" class="btn-primary"
+                            invisible="state == 'draft'" icon="fa-caret-left"/> <!--attrs="{'invisible':[('state','=','draft')]}"-->
+                    <button name="button_confirmed" string="Confirmed" type="object" class="btn-primary"
+                            invisible="state != 'draft'" icon="fa-check"/> <!--attrs="{'invisible':[('state','!=','draft')]}"-->
+                    <button name="button_done" string="Done" type="object" class="btn-primary"
+                            invisible=" state != 'confirmed'" icon="fa-legal"/> <!--attrs="{'invisible':[('state','!=','confirmed'')]}"-->
+                    <field name="state" widget="statusbar"/>
+                </header>
+            <!-- End Statusbar Section -->
+                <sheet>
+            <!-- Start Smart Button Section -->
+                    <div name="button_box" class="oe_button_box">
+                        <!-- <button name="search_counter" string="All" icon="fa-user"
+                                type="object" class="oe_stat_button">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="all"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    All Record
+                                </span>
+                            </div>
+                        </button> -->
+                    </div>
+            <!-- End Smart Button Section -->
+                    <field name="image" widget="image" class="oe_avatar"/>
+            <!-- Start Serial Section -->
+                    <div class="oe_title">
+                        <span>Create Contract</span>
+                        <h1 class="d-flex">
+                            <field name="priority" widget="priority" class="me-3"/>
+                            <field name="serial"/>
+                        </h1>
+                        <h2>
+                            <field name="name" placeholder="Contract Name"/>
+                        </h2>
+                    </div>
+            <!-- End Serial Section -->
+                    <group>
+                        <group string="Title One :" class="page_title">
+
+                        </group>
+                        <group string="Title Two :" class="page_title">
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Transportation">
+                        </page>
+                    </notebook>
+                </sheet>
+            <!-- Start Chatter Section -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            <!-- End Chatter Section -->
+            </form>
+        </field>
+    </record>
+<!-- ########################| End Form View |########################### -->
+
+<!-- ########################| Start Tree View |######################### -->
+    <record id="contract_view_tree" model="ir.ui.view">
+        <field name="name">Contract</field>
+        <field name="model">contract.view</field>
+        <field name="arch" type="xml">
+            <tree>
+
+            </tree>
+        </field>
+    </record>
+<!-- ########################| End Tree View |########################### -->
+
+<!-- ########################| Start Search View |####################### -->
+    <record id="contract_view_search" model="ir.ui.view">
+        <field name="name">Contract</field>
+        <field name="model">contract.view</field>
+        <field name="arch" type="xml">
+            <search>
+
+            </search>
+        </field>
+    </record>
+<!-- ########################| End Search View |######################## -->
+</odoo>

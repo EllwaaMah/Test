@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Start Contract View Report Form Template -->
+        <template id="empty_module.contract_view_form_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <!-- Start CSS File Link -->
+                        <link rel="stylesheet" href="/empty_module/static/src/css/reports.css"/>
+                        <!-- End CSS File Link -->
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <!-- End Contract View Report Form Template -->
+    </data>
+</odoo>
